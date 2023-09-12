@@ -5,10 +5,24 @@ Now, Goldriver and his friend starts an entire adventure to scape the kingdom.
 
 Goldriver, the legacy of Goldendelve 
 
+-2 months after-
+"Goldriver and + nomeDoPlayer + are hiding in a forest trying to find someplace to sleep
 Goldriver: So how's it going + nomeDoPlayer 
 Player: definetly not so good, I'm really don't know how the king did all that horrible things
-Goldriver: me neither
-Player: 
+Goldriver: me neither, but anyways there is nothing we can do, so are you hungry?
+Player: starving 
+Goldriver: ok listen, it is starting to be dangerous here, let's split ourselves, I'm going to find some food and you try to find someplace to we rest
+See that cave overthere must be safe to we sleep.
+
+After ...
+
+
+
+Player: Yes || No
+Yes:
+The player follows 
+No:
+
 
 Now 22, Decker is alone, sought by the kingdom and looking for some meaning to his life, he follows his adventure searching for some peace in Kriften.
  
