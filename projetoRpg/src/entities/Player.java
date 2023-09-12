@@ -11,6 +11,7 @@ public class Player {
 	//Equipment
 	private Weapon weapon;
 	private Armor armor;
+	private int potion;
 	
 	public Player (String name, int PV, int strength, int constitution, int agility, int dexterity){
 		this.name = name;
@@ -29,8 +30,40 @@ public class Player {
 		this.weapon = weapon;
 	}
 	
+	public int setPotion() {
+		return this.potion;
+	}
+	
 	public void setArmor(Armor armor) {
 		this.armor = armor;
+	}
+	
+	public int getLife() {
+		return this.PV;
+	}
+	
+	public int getAgility() {
+		return this.agility;
+	}
+	
+	public int getDamage() {
+		return weapon.getWeaponDamage();
+	}
+	
+	public int getDefense() {
+		return armor.getDefense();
+	}
+	
+	public String getWeaponCategory() {
+		return weapon.getWeaponCategory();
+	}
+	
+	public int getStrength() {
+		return this.strength;
+	}
+	
+	public int getDexterity() {
+		return this.dexterity;
 	}
 	
 	public String toString() {

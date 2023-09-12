@@ -15,6 +15,14 @@ public class Weapon {
 		return this.weaponName;
 	}
 	
+	public int getWeaponDamage() {
+		return this.damage;
+	}
+	
+	public String getWeaponCategory() {
+		return this.category;
+	}
+	
 	public String toString() {
 		return "Weapon Status:\n" + "Name:" + weaponName + "\nCategory: " + category + "\nDamage:" + damage;
 	}

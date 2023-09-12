@@ -18,6 +18,6 @@ public class Armor {
 	}
 	
 	public String toString() {
-		return "Armor Status: \n" + "Armor Name: " + armorName + "\n Defense: " + defense;
+		return "Armor Status: \n" + "Armor Name: " + armorName + "\nDefense: " + defense;
 	}
 }

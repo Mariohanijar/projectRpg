@@ -2,7 +2,6 @@ package entities;
 
 import java.util.Random;
 import java.util.Scanner;
-import java.io.IOException;
 
 public class playerActions {
 	public static Player characterCreation(Scanner input, Random random) {
@@ -44,8 +43,8 @@ public class playerActions {
 			int x;
 			switch (choice) {
 				case 1:
-					System.out.println(shortSickle);
-					System.out.println("Are you sure? yes[1] no[2]");
+					System.out.println("\n"+shortSickle);
+					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
 						return shortSickle;
@@ -55,8 +54,8 @@ public class playerActions {
 					}
 
 				case 2:
-					System.out.println(lightMace);
-					System.out.println("Are you sure? yes[1] no[2]");
+					System.out.println("\n"+lightMace);
+					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
 						return lightMace;
@@ -66,8 +65,8 @@ public class playerActions {
 					}
 					
 				case 3:
-					System.out.println(heavyAxe);
-					System.out.println("Are you sure? yes[1] no[2]");
+					System.out.println("\n"+heavyAxe);
+					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
 						return heavyAxe;
@@ -92,8 +91,8 @@ public class playerActions {
 			int x;
 			switch (choice) {
 				case 1:
-					System.out.println(leatherArmor);
-					System.out.println("Are you sure? yes[1] no[2]");
+					System.out.println("\n"+leatherArmor);
+					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
 						return leatherArmor;
@@ -103,8 +102,8 @@ public class playerActions {
 					}
 
 				case 2:
-					System.out.println(chainArmor);
-					System.out.println("Are you sure? yes[1] no[2]");
+					System.out.println("\n"+chainArmor);
+					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
 						return chainArmor;
@@ -114,8 +113,8 @@ public class playerActions {
 					}
 					
 				case 3:
-					System.out.println(splintArmor);
-					System.out.println("Are you sure? yes[1] no[2]");
+					System.out.println("\n"+splintArmor);
+					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
 						return splintArmor;
