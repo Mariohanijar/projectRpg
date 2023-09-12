@@ -74,6 +74,6 @@ public class Player {
 	public String toString() {
 		return "| Character's name: " + name + " \n|\n| Character's PV: " + PV + "\n|\n| Character's strength: " + strength +
 				" \n|\n| Character's constitution: " + constitution + " \n|\n| Character's agility: " + agility + " \n|\n| Character's dexterity: " +dexterity
-				+ " \n|\n| Character's weapon: " + weapon.getWeaponName() + " \n|\n| Character's armor: " + armor.getArmorName();
+				+ " \n|\n| Character's weapon: " + weapon.getWeaponName() + " \n|\n| Character's armor: " + armor.getArmorName() + " \n|\n| magic chosen: " + magic.getMagicName();
 	}
 }
