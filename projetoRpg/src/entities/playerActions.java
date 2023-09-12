@@ -76,17 +76,69 @@ public class playerActions {
 					}
 					
 			}
+			
 		}
+		
+		
 	}
-	public static Armor armorSelector(Scanner input) {
-		Armor leatherArmor = new Armor(3, "Leather Armor");
-		Armor chainArmor = new Armor(5, "Chain Armor");
-		Armor splintArmor = new Armor(7, "Splint Armor");
-		
-		
+	public static Magic magicSelector(Scanner input) {
+		Magic fireball = new Magic(2, "Fire ball");
+		Magic iceShards = new Magic(1, "Ice Shards");
+		Magic infestation = new Magic(1, "Infestation");
 		
 		while(1 != 0) {
-			System.out.println("which weapon do you want? Leather Armor[1], Chain Armor[2], Splint Armor[3]");
+			System.out.println("which magic spell do you want? Fire Ball[1], Ice Shards[2], Infestation[3]");
+			int choice = input.nextInt();
+			int x;
+			switch (choice) {
+				case 1:
+					System.out.println("\n"+fireball);
+					System.out.println("\nAre you sure? yes[1] no[2]");
+					x = input.nextInt();
+					if(x == 1) {
+						return fireball;
+					}
+					else {
+						continue;
+					}
+
+				case 2:
+					System.out.println("\n"+iceShards);
+					System.out.println("\nAre you sure? yes[1] no[2]");
+					x = input.nextInt();
+					if(x == 1) {
+						return iceShards;
+					}
+					else {
+						continue;
+					}
+					
+				case 3:
+					System.out.println("\n"+infestation);
+					System.out.println("\nAre you sure? yes[1] no[2]");
+					x = input.nextInt();
+					if(x == 1) {
+						return infestation;
+					}
+					
+					else {
+						continue;
+					}
+					
+			}
+		}
+	}
+	
+	public static Armor armorSelector(Scanner input) {
+		Armor leatherArmor = new Armor(3, "Leather Armour");
+		Armor chainArmor = new Armor(5, "Chain Armour");
+		Armor ringMailArmor = new Armor(7, "Ring Mail Armour");
+		Armor splintArmor = new Armor(12, "Splint Armour");
+		Armor plateArmor = new Armor(17, "Plate Armour");
+		Armor berserkArmor = new Armor(9000, "Berserk Armour");
+		
+		while(1 != 0) {
+			System.out.println("which armour do you want? Leather Armor[1], Chain Armor[2], Ring Mail Armor[3]");
 			int choice = input.nextInt();
 			int x;
 			switch (choice) {
@@ -113,12 +165,13 @@ public class playerActions {
 					}
 					
 				case 3:
-					System.out.println("\n"+splintArmor);
+					System.out.println("\n"+ringMailArmor);
 					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
-						return splintArmor;
+						return ringMailArmor;
 					}
+					
 					else {
 						continue;
 					}

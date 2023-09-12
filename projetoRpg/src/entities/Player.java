@@ -11,6 +11,7 @@ public class Player {
 	//Equipment
 	private Weapon weapon;
 	private Armor armor;
+	private Magic magic;
 	private int potion;
 	
 	public Player (String name, int PV, int strength, int constitution, int agility, int dexterity){
@@ -28,6 +29,10 @@ public class Player {
 	
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
+	}
+	
+	public void setMagic(Magic magic) {
+		this.magic = magic;
 	}
 	
 	public int setPotion() {
