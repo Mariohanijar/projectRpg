@@ -7,6 +7,7 @@ import java.util.Scanner;
 import entities.Player;
 import entities.playerActions;
 
+
 public class Program {
 
 	public static void main(String[] args) {
@@ -15,6 +16,8 @@ public class Program {
 		Random random = new Random();
 		
 		Player player = playerActions.characterCreation(input, random);
+		player.setWeapon(playerActions.weaponSelector(input));
+		player.setArmor(playerActions.armorSelector(input));
 		System.out.println(player);
 		
 	}
