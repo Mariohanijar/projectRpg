@@ -2,7 +2,8 @@ package entities;
 
 public class Player {
 	private String name;
-	private int PV;
+	private double PV;
+	private double PVMax;
 	
 	private int strength;
 	private int constitution;
@@ -12,11 +13,15 @@ public class Player {
 	private Weapon weapon;
 	private Armor armor;
 	private Magic magic;
-	private int potion;
+	private Potion potion;
+	private int amountOfPotions;
 	
-	public Player (String name, int PV, int strength, int constitution, int agility, int dexterity){
+	public Player (String name, double PV, int strength, int constitution, int agility, int dexterity, Potion potion){
 		this.name = name;
 		this.PV = PV;
+		this.PVMax = PV;
+		this.potion = potion;
+		amountOfPotions = potion.getAmountPotions();
 		getAllAtributes(strength, constitution, agility, dexterity);		
 	}
 	
@@ -35,15 +40,11 @@ public class Player {
 		this.magic = magic;
 	}
 	
-	public int setPotion() {
-		return this.potion;
-	}
-	
 	public void setArmor(Armor armor) {
 		this.armor = armor;
 	}
 	
-	public int getLife() {
+	public double getLife() {
 		return this.PV;
 	}
 	
@@ -51,11 +52,11 @@ public class Player {
 		return this.agility;
 	}
 	
-	public int getDamage() {
+	public double getDamage() {
 		return weapon.getWeaponDamage();
 	}
 	
-	public int getDefense() {
+	public double getDefense() {
 		return armor.getDefense();
 	}
 	
@@ -69,6 +70,31 @@ public class Player {
 	
 	public int getDexterity() {
 		return this.dexterity;
+	}
+	
+	public int getAmountPotions() {
+		return this.amountOfPotions;
+	}
+	
+	public double drinkPotions() {
+		return potion.DrinkPotion();
+	}
+	
+	public void setLife(double PV) {
+		this.PV = PV;
+	}
+	public void healLife(double heal) {
+		this.PV += heal;
+	}
+	public String getName() {
+		return name;
+	}
+	
+	public double getPVMax() {
+		return this.PVMax;
+	}
+	public void setAmountPotions(double set) {
+		this.amountOfPotions -= set;
 	}
 	
 	public String toString() {

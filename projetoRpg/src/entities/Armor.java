@@ -1,15 +1,15 @@
 package entities;
 
 public class Armor {
-	private int defense;
+	private double defense;
 	private String armorName;
 	
-	public Armor(int defense, String armorName) {
+	public Armor(double defense, String armorName) {
 		this.defense = defense;
 		this.armorName = armorName;
 	}
 	
-	public int getDefense() {
+	public double getDefense() {
 		return this.defense;
 	}
 	

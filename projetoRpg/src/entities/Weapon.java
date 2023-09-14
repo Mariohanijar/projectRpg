@@ -1,7 +1,7 @@
 package entities;
 
 public class Weapon {
-	private int damage;
+	private double damage;
 	private String category;
 	private String weaponName;
 	
@@ -15,7 +15,7 @@ public class Weapon {
 		return this.weaponName;
 	}
 	
-	public int getWeaponDamage() {
+	public double getWeaponDamage() {
 		return this.damage;
 	}
 	

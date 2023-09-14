@@ -2,9 +2,9 @@ package entities;
 
 public class Monster {
 	private String monsterName;
-	private int PV;
-	private int damage;
-	private int defense;
+	private double PV;
+	private double damage;
+	private double defense;
 	private int agility;
 	
 	public Monster (String monsterName, int PV, int damage, int defense, int agility) {
@@ -19,7 +19,7 @@ public class Monster {
 		return monsterName;
 	}
 	
-	public int getLife() {
+	public double getLife() {
 		return PV;
 	}
 	
@@ -27,15 +27,15 @@ public class Monster {
 		return this.agility;
 	}
 	
-	public int getDamage() {
+	public double getDamage() {
 		return this.damage;
 	}
 	
-	public int getDefense() {
+	public double getDefense() {
 		return this.defense;
 	}
 	
-	public void setLifeMonster(int damage) {
-		this.PV -= damage;
+	public void setLifeMonster(double damage) {
+		this.PV -= (damage-this.defense);
 	}
 	}

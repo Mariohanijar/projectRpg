@@ -25,8 +25,8 @@ public class playerActions {
 		}
 		
 		pv = (random.nextInt(6)+1) + (random.nextInt(6)+1) + (random.nextInt(6)+1) + constitution;
-		
-		Player player = new Player(name, pv, strength, constitution, agility, dexterity);
+		Potion potion = new Potion();
+		Player player = new Player(name, pv, strength, constitution, agility, dexterity, potion);
 		return player;
 		
 		
