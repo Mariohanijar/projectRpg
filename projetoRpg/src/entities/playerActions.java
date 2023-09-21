@@ -32,44 +32,31 @@ public class playerActions {
 		
 	}
 	
-	public static Weapon weaponSelector(Scanner input) {
-		Weapon shortSickle = new Weapon(3, "light", "Short Sicle");
-		Weapon lightMace = new Weapon(4, "light", "lightMace");
-		Weapon heavyAxe = new Weapon(7, "heavy", "Heavy Axe");
+	public static Weapon weaponSelector(Scanner input, Weapon weapon1, Weapon weapon2) {
+		
 		
 		while(1 != 0) {
-			System.out.println("which weapon do you want? Short Sickle[1], Light Mace[2], Heavy Axe[3]");
+			System.out.println("which weapon do you want?"+ weapon1.getWeaponName() + "[1], "+ weapon2.getWeaponName() + "[2]");
 			int choice = input.nextInt();
 			int x;
 			switch (choice) {
 				case 1:
-					System.out.println("\n"+shortSickle);
+					System.out.println("\n"+ weapon1);
 					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
-						return shortSickle;
-					}
-					else {
-						continue;
-					}
-
-				case 2:
-					System.out.println("\n"+lightMace);
-					System.out.println("\nAre you sure? yes[1] no[2]");
-					x = input.nextInt();
-					if(x == 1) {
-						return lightMace;
+						return weapon1;
 					}
 					else {
 						continue;
 					}
 					
-				case 3:
-					System.out.println("\n"+heavyAxe);
+				case 2:
+					System.out.println("\n"+ weapon2);
 					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
-						return heavyAxe;
+						return weapon2;
 					}
 					else {
 						continue;
@@ -129,49 +116,31 @@ public class playerActions {
 		}
 	}
 	
-	public static Armor armorSelector(Scanner input) {
-		Armor leatherArmor = new Armor(3, "Leather Armour");
-		Armor chainArmor = new Armor(5, "Chain Armour");
-		Armor ringMailArmor = new Armor(7, "Ring Mail Armour");
-		Armor splintArmor = new Armor(12, "Splint Armour");
-		Armor plateArmor = new Armor(17, "Plate Armour");
-		Armor berserkArmor = new Armor(9000, "Berserk Armour");
+	public static Armor armorSelector(Scanner input, Armor armor1, Armor armor2) {
 		
 		while(1 != 0) {
-			System.out.println("which armour do you want? Leather Armor[1], Chain Armor[2], Ring Mail Armor[3]");
+			System.out.println("which armour do you want? "+ armor1.getArmorName() +"[1], "+ armor2.getArmorName() +"[2]");
 			int choice = input.nextInt();
 			int x;
 			switch (choice) {
 				case 1:
-					System.out.println("\n"+leatherArmor);
+					System.out.println("\n"+armor1);
 					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
-						return leatherArmor;
+						return armor1;
 					}
 					else {
 						continue;
 					}
 
 				case 2:
-					System.out.println("\n"+chainArmor);
+					System.out.println("\n"+armor2);
 					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
-						return chainArmor;
+						return armor2;
 					}
-					else {
-						continue;
-					}
-					
-				case 3:
-					System.out.println("\n"+ringMailArmor);
-					System.out.println("\nAre you sure? yes[1] no[2]");
-					x = input.nextInt();
-					if(x == 1) {
-						return ringMailArmor;
-					}
-					
 					else {
 						continue;
 					}
