@@ -45,7 +45,9 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner input = new Scanner(System.in);
 		Random random = new Random();
-		Monster slime = new Monster("Slime", 10, 3, 1, -10);
+		Monster slime = new Monster("Slime", 10, 3, 1, 2);
+		Monster globin = new Monster("Globin", 15, 4, 2, 8);
+		Monster kobold = new Monster("Kobold", 20, 5, 3, 4);
 		
 		Weapon shortSickle = new Weapon(3, "light", "Short Sicle");
 		Weapon heavyAxe = new Weapon(7, "heavy", "Heavy Axe");
@@ -67,7 +69,8 @@ public class Program {
 		player.setMagic(playerActions.magicSelector(input));
 		player.setArmor(playerActions.armorSelector(input, leatherArmor, chainArmor));
 		System.out.println(player);
-		Battle.combat(input, slime, player);
+		
+		Battle.battleStart(slime, globin, kobold, player, input, random);
 		
 		
 		
