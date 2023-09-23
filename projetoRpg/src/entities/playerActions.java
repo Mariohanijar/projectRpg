@@ -70,6 +70,7 @@ public class playerActions {
 		
 		
 	}
+	
 	public static Magic magicSelector(Scanner input) {
 		Magic fireball = new Magic(2, "Fire ball");
 		Magic iceShards = new Magic(1, "Ice Shards");
@@ -118,6 +119,42 @@ public class playerActions {
 		}
 	}
 	
+	public static Market marketsOnGame(Scanner input) {
+		Market magnus = new Market("Magnus", "Down Hill", "1. sword, 2. shield, 3. magic", "market of downhill", 2);
+		Market freya= new Market("freya", "Dirty Helment", "1.helment, 2. potion, 3. magic", "market of Dirty Helment", 3);
+		
+		
+		while(1 != 0) {
+			System.out.println("which magic spell do you want? Fire Ball[1], Ice Shards[2], Infestation[3]");
+			int choice = input.nextInt();
+			int x;
+			switch (choice) {
+				case 1:
+					System.out.println("\n"+magnus);
+					System.out.println("\nAre you sure? yes[1] no[2]");
+					x = input.nextInt();
+					if(x == 1) {
+						return magnus;
+					}
+					else {
+						continue;
+					}
+
+				case 2:
+					System.out.println("\n"+freya);
+					System.out.println("\nAre you sure? yes[1] no[2]");
+					x = input.nextInt();
+					if(x == 1) {
+						return freya;
+					}
+					else {
+						continue;
+					}
+					
+					
+			}
+		}
+	}
 	public static Armor armorSelector(Scanner input, Armor armor1, Armor armor2) {
 		
 		while(1 != 0) {
