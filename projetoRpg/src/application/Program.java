@@ -45,9 +45,14 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner input = new Scanner(System.in);
 		Random random = new Random();
+		Monster mimic = new Monster("Mimic", 5, 2, 1, 2);
 		Monster slime = new Monster("Slime", 10, 3, 1, 2);
 		Monster globin = new Monster("Globin", 15, 4, 2, 8);
 		Monster kobold = new Monster("Kobold", 20, 5, 3, 4);
+		Monster vampire = new Monster("Vampire", 2, 4, 2, 8);
+		Monster beholder = new Monster("Beholder", 2, 4, 2, 8);
+		
+		
 		
 		Weapon shortSickle = new Weapon(3, "light", "Short Sicle");
 		Weapon heavyAxe = new Weapon(7, "heavy", "Heavy Axe");
@@ -65,13 +70,15 @@ public class Program {
 		//
 		slowPrint50("\n \nGoldriver, the legacy of Goldendelve \n \n");
 		Player player = playerActions.characterCreation(input, random);
+		System.out.println("nome do player eh" + player.getName());
 		player.setWeapon(playerActions.weaponSelector(input, shortSickle, heavyAxe));
 		player.setMagic(playerActions.magicSelector(input));
 		player.setArmor(playerActions.armorSelector(input, leatherArmor, chainArmor));
 		System.out.println(player);
 		
-		Battle.battleStart(slime, globin, kobold, player, input, random);
-		
+		Battle.battleWithThreeMonsters(slime, globin, kobold, player, input, random);
+		Battle.battleWithTwoMonsters(vampire, mimic, player, input, random);
+		Battle.battleWithOneMonster(beholder, player, input);
 		
 		
 		

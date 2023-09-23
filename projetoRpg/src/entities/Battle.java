@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Battle {
-	public static void battleStart(Monster monster, Monster monster2, Monster monster3, Player player, Scanner input, Random random) {
+	public static void battleWithThreeMonsters(Monster monster, Monster monster2, Monster monster3, Player player, Scanner input, Random random) {
 		int randomMonster = random.nextInt(3)+1;
 		
 		
@@ -17,10 +17,25 @@ public class Battle {
 		 else if (randomMonster == 3) {
 			 Battle.combat(input,  monster3,  player);
 		 }
-		
-		
-		
 	}
+	
+	public static void battleWithTwoMonsters(Monster monster, Monster monster2, Player player, Scanner input, Random random) {
+		int randomMonster = random.nextInt(2)+1;
+		
+		
+		 if (randomMonster == 1) {
+			 Battle.combat(input,  monster,  player);
+	     }
+		 else if (randomMonster == 2) {
+			 Battle.combat(input,  monster2,  player);
+		 }
+		 
+	}
+	
+	public static void battleWithOneMonster(Monster monster, Player player, Scanner input) {
+			 Battle.combat(input,  monster,  player);
+	}
+	
     public static boolean playerTurn(Scanner input, Monster monster, Player player) {
         double damage, heal;
 
