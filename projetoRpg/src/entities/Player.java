@@ -11,6 +11,7 @@ public class Player {
 	private int constitution;
 	private int agility;
 	private int dexterity;
+	private int coin;
 	
 	// Equipment
 	private Weapon weapon;
@@ -23,11 +24,12 @@ public class Player {
 
 	Random random = new Random();
 
-	public Player(String name, double PV, int strength, int constitution, int agility, int dexterity, Potion potion) {
+	public Player(String name, double PV, int strength, int constitution, int agility, int dexterity, Potion potion, int coin) {
 		this.name = name;
 		this.PV = PV;
 		this.PVMax = PV;
 		this.potion = potion;
+		this.coin = coin;
 		amountOfPotions = potion.getAmountPotions();
 		getAllAtributes(strength, constitution, agility, dexterity);
 	}
@@ -83,7 +85,9 @@ public class Player {
 	public void setOriginalDefense(double originalDefense) {
 		this.originalDefense = originalDefense;
 	}
-
+	public void setCoin(int coin) {
+		this.coin = coin;
+	}
 	public String getWeaponCategory() {
 		return weapon.getWeaponCategory();
 	}
@@ -91,7 +95,9 @@ public class Player {
 	public int getStrength() {
 		return this.strength;
 	}
-
+	public int getCoin() {
+		return this.coin;
+	}
 	public int getDexterity() {
 		return this.dexterity;
 	}
@@ -131,7 +137,7 @@ public class Player {
 	public String toString() {
 		return "| Character's name: " + name + " \n|\n| Character's PV: " + PV + "\n|\n| Character's strength: "
 				+ strength + " \n|\n| Character's constitution: " + constitution + " \n|\n| Character's agility: "
-				+ agility + " \n|\n| Character's dexterity: " + dexterity + " \n|\n| Character's weapon: "
+				+ agility + " \n|\n| Character's dexterity: " + dexterity +  " \n|\n| Character's coins: " + coin + " \n|\n| Character's weapon: "
 				+ weapon.getWeaponName() + " \n|\n| Character's armor: " + armor.getArmorName()
 				+ " \n|\n| magic chosen: " + magic.getMagicName();
 	}

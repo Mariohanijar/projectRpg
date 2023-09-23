@@ -8,7 +8,7 @@ public class playerActions {
 		System.out.println("What is your character's name");
 		String name = input.next();
 		
-		int strength = 0, constitution = 0, agility = 0, dexterity = 0, pv;
+		int strength = 0, constitution = 0, agility = 0, dexterity = 0, pv, coin = 0;
 		 
 		while(strength + constitution + agility + dexterity != 15) {
 			System.out.println("how many points do you want to put in strength?:");
@@ -26,7 +26,9 @@ public class playerActions {
 		
 		pv = (random.nextInt(6)+1) + (random.nextInt(6)+1) + (random.nextInt(6)+1) + constitution;
 		Potion potion = new Potion();
-		Player player = new Player(name, pv, strength, constitution, agility, dexterity, potion);
+		System.out.println("how much coins do you want?:");
+		coin = input.nextInt();
+		Player player = new Player(name, pv, strength, constitution, agility, dexterity, potion, coin);
 		return player;
 		
 		
