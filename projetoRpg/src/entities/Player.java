@@ -50,6 +50,14 @@ public class Player {
 		}
 	}
 
+	public int getConstitution() {
+		return constitution;
+	}
+
+	public void setConstitution(int constitution) {
+		this.constitution = constitution;
+	}
+
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
 	}
@@ -140,5 +148,9 @@ public class Player {
 				+ agility + " \n|\n| Character's dexterity: " + dexterity +  " \n|\n| Character's coins: " + coin + " \n|\n| Character's weapon: "
 				+ weapon.getWeaponName() + " \n|\n| Character's armor: " + armor.getArmorName()
 				+ " \n|\n| magic chosen: " + magic.getMagicName();
+	}
+
+	public void setPVMax(double pVMax) {
+		PVMax = pVMax;
 	}
 }

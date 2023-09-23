@@ -151,9 +151,28 @@ public class playerActions {
 		}
 		
 	}
-	
-		
-		
+	public static void levelUp(Scanner input, int level, Player player) {
+        System.out.println("Congratulations you leveled up!!!!!/n You have gained "+ level + " attribute points, allocate them correctly:\n\n");
+
+        int strength = 0, constitution = 0, agility = 0, dexterity = 0;
+
+        while (strength + constitution + agility + dexterity != level) {
+            System.out.println("how many points do you want to put in strength?:");
+            strength = input.nextInt();
+            System.out.println("how many points do you want to put in constitution?:");
+            constitution = input.nextInt();
+            System.out.println("how many points do you want to put in agility?:");
+            agility = input.nextInt();
+            System.out.println("how many points do you want to put in dexterity?:");
+            dexterity = input.nextInt();
+            if (strength + constitution + agility + dexterity != level) {
+                System.out.println("please allocate the "+ level +"points correctly");
+            }
+        }
+        player.getAllAtributes(strength, constitution, agility, dexterity);
+        player.setPVMax((double)player.getPVMax() + player.getConstitution());
+
+    }
 		
 		
 		
