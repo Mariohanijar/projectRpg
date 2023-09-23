@@ -127,13 +127,13 @@ public class Battle {
                 }
 
                 do{
-                    monsterTurn(input, monster, player, random);
+                    pass = monsterTurn(input, monster, player, random);
                 }while(pass);
                 
             }
             if (player.getAgility() < monster.getAgility()) {
                 do{
-                    monsterTurn(input, monster, player, random);
+                    pass = monsterTurn(input, monster, player, random);
                 }while(pass);
 
                 if (player.getLife() <= 0) {
