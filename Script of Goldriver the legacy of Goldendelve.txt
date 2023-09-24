@@ -100,12 +100,12 @@ procides the story.
 
 after some walk, you are almost leaving Dirty Helment when an arrow fall in front of Goldriver,
 the king with all his guard was aiming at you
-Danyel: GOLDRIVER, YOU REALLY THOUGHT YOU COULD SCAPE?
+Danyel: GOLDRIVER, YOU REALLY THOUGHT YOU COULD ESCAPE?
 Goldriver: We don't wanna fight Danyel, we just want to leave the kingdom, I don't care about your dirty work
 Danyel: You never was like your father, Adrik was much better the than you.
 Goldriver: my parents are dead because of your pathetic guardianship
 Danyel: YOU ARE DEAD DECKER
-+ player.getName() seeing that Decker would die, he push him in the direction of a lake, now was only you against all the guards of the king
++ player.getName() seeing that Decker would die, he pushes him in the direction of a lake, now was only you against all the guards of the king
 
 --after the battle you die
 Danyel: I'm not gonna lie, you are tought kid, but not for me. *kill + player.getName() *, drop this peace of shit in a bonfire
