@@ -41,39 +41,48 @@ public class Battle {
 
         player.setDefense(player.getOriginalDefense());
         System.out.println("\n" + player.getName() + "'s life: " + player.getLife() + " || " + monster.getName()
-                + "'s life: " + monster.getPV() + "\n\n");
+        + "'s life: " + monster.getPV() + "\n\n");
         System.out.println("what do you want to do?\n ATTACK[1] DEFENSE[2] POTION[3]");
 
         int choice = input.nextInt();
+        Formatting.lineBreaker();
 
         switch (choice) {
         case 1:
             damage = player.getDamage();
-            System.out.println("\n\nyou dealt " + damage + " damage!!!\n\n");
+            
             monster.receiveDamage(damage);
+            System.out.println("\n\nyou dealt " + damage + " damage!!!\n\n");
+            Formatting.lineBreaker();
             return false;
         case 2:
             player.setDefense(player.getDefense() * 2);
             System.out.println("you defended yourself!!!");
+            Formatting.lineBreaker();
             return false;
 
         case 3:
             heal = player.drinkPotions();
             if (player.getAmountPotions() == 0) {
                 System.out.println("you don't have enough potions!!");
+                Formatting.lineBreaker();
                 return true;
             } else if (player.getLife() == player.getPVMax()) {
                 System.out.println("Your life is full");
+                Formatting.lineBreaker();
                 return true;
             } else if (player.getLife() + heal > player.getPVMax()) {
                 player.setLife(player.getPVMax());
                 player.setAmountPotions(1);
                 System.out.println("now your life is full");
+                Formatting.lineBreaker();
                 return false;
             } else {
-                System.out.println("You healead " + heal + " points of life");
+                
                 player.healLife(heal);
                 player.setAmountPotions(1);
+                System.out.println("You healead " + heal + " points of life");
+                Formatting.lineBreaker();
                 return false;
             }
         default:
@@ -89,6 +98,7 @@ public class Battle {
         if(monster.getPV() <= 0){
             return false;
         }
+        
         monster.setDefense(monster.getOriginalDefense());
         monsterChoice = (random.nextInt(3) + 1);
         switch (monsterChoice) {
@@ -96,27 +106,37 @@ public class Battle {
             monsterDamage = monster.getDamage();
             player.receiveDamage(monsterDamage);
             System.out.println("the " + monster.getName() + " dealt " + monsterDamage + " damage!\n\n");
+            Formatting.lineBreaker();
             return false;
 
         case 2:
             monster.setDefense(player.getDefense() * 2);
             System.out.println("the monster defended himself!!!");
+            Formatting.lineBreaker();
             return false;
 
         case 3:
             heal = monster.drinkPotion();
             if (monster.getAmountOfPotions() <= 0) {
                 System.out.println("the monster tried to heal... but failed");
+                Formatting.lineBreaker();
                 return true;
             } else if (monster.getPV() == monster.getPVMax()) {
                 System.out.println("the monster tried to heal... but his life is full");
+                Formatting.lineBreaker();
                 return true;
             } else if (monster.getPV() + heal > monster.getPVMax()) {
+                System.out.println("the monster healed "+ (monster.getPVMax() - monster.getPV()) + " points of life");
                 monster.setPVtoMax(monster.getPVMax());
+                monster.setAmountOfPotions();
+                Formatting.lineBreaker();
                 return false;
             } else {
-                System.out.println("You healead " + heal + " points of life");
+                
                 monster.healLife(monster.drinkPotion());
+                System.out.println("You healead " + heal + " points of life");
+                monster.setAmountOfPotions();
+                Formatting.lineBreaker();
                 return false;
             }
         default:
@@ -131,7 +151,9 @@ public class Battle {
         System.out.println("You find a " + monster.getName() + "!\n\n\n\n THE BATTLE BEGINS!!!");
 
         while (player.getLife() > 0 && monster.getPV() > 0) {
-
+        	
+            
+            Formatting.lineBreaker();
             if (player.getAgility() >= monster.getAgility()) {
                 do{
                     pass = playerTurn(input, monster, player);
@@ -147,6 +169,8 @@ public class Battle {
                 
             }
             if (player.getAgility() < monster.getAgility()) {
+            	for(int i = 0; i < 1; i++)System.out.println("\n" + player.getName() + "'s life: " + player.getLife() + " || " + monster.getName()
+                + "'s life: " + monster.getPV() + "\n\n");
                 do{
                     pass = monsterTurn(input, monster, player, random);
                 }while(pass);
@@ -162,6 +186,7 @@ public class Battle {
         }
         if(monster.getPV() <= 0){
             System.out.println("You defeated the " + monster.getName());
+            player.resetPlayer();
         }
         else{
             System.out.println("You have been defeated");

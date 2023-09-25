@@ -72,9 +72,12 @@ public class Monster {
 	public int getAmountOfPotions() {
 		return this.amountOfPotions;
 	}
+	
+	public void setAmountOfPotions() {
+		this.amountOfPotions = this.amountOfPotions - 1;
+	}
 
 	public double drinkPotion() {
-		this.amountOfPotions -= 1;
 		return potion.DrinkPotion();
 	}
 

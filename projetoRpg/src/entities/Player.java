@@ -6,13 +6,17 @@ public class Player {
 	private String name;
 	private double PV;
 	private double PVMax;
+	private double mp;
+	private double mpMax;
+
+	
 
 	private int strength;
 	private int constitution;
 	private int agility;
 	private int dexterity;
 	private int coin;
-	
+
 	// Equipment
 	private Weapon weapon;
 	private Armor armor;
@@ -24,7 +28,8 @@ public class Player {
 
 	Random random = new Random();
 
-	public Player(String name, double PV, int strength, int constitution, int agility, int dexterity, Potion potion, int coin) {
+	public Player(String name, double PV, int strength, int constitution, int agility, int dexterity, Potion potion,
+			int coin) {
 		this.name = name;
 		this.PV = PV;
 		this.PVMax = PV;
@@ -54,6 +59,22 @@ public class Player {
 		return constitution;
 	}
 
+	public double getMp() {
+		return mp;
+	}
+
+	public void setMp(double mp) {
+		this.mp = mp;
+	}
+
+	public double getMpMax() {
+		return mpMax;
+	}
+
+	public void setMpMax(double mpMax) {
+		this.mpMax = mpMax;
+	}
+	
 	public void setConstitution(int constitution) {
 		this.constitution = constitution;
 	}
@@ -81,7 +102,7 @@ public class Player {
 	public double getDefense() {
 		return this.defense;
 	}
-	
+
 	public void setDefense(double defense) {
 		this.defense = defense;
 	}
@@ -93,9 +114,11 @@ public class Player {
 	public void setOriginalDefense(double originalDefense) {
 		this.originalDefense = originalDefense;
 	}
+
 	public void setCoin(int coin) {
 		this.coin = coin;
 	}
+
 	public String getWeaponCategory() {
 		return weapon.getWeaponCategory();
 	}
@@ -103,9 +126,11 @@ public class Player {
 	public int getStrength() {
 		return this.strength;
 	}
+
 	public int getCoin() {
 		return this.coin;
 	}
+
 	public int getDexterity() {
 		return this.dexterity;
 	}
@@ -145,12 +170,17 @@ public class Player {
 	public String toString() {
 		return "| Character's name: " + name + " \n|\n| Character's PV: " + PV + "\n|\n| Character's strength: "
 				+ strength + " \n|\n| Character's constitution: " + constitution + " \n|\n| Character's agility: "
-				+ agility + " \n|\n| Character's dexterity: " + dexterity +  " \n|\n| Character's coins: " + coin + " \n|\n| Character's weapon: "
-				+ weapon.getWeaponName() + " \n|\n| Character's armor: " + armor.getArmorName()
-				+ " \n|\n| magic chosen: " + magic.getMagicName();
+				+ agility + " \n|\n| Character's dexterity: " + dexterity + " \n|\n| Character's coins: " + coin
+				+ " \n|\n| Character's weapon: " + weapon.getWeaponName() + " \n|\n| Character's armor: "
+				+ armor.getArmorName() + " \n|\n| magic chosen: " + magic.getMagicName();
 	}
 
 	public void setPVMax(double pVMax) {
 		PVMax = pVMax;
+	}
+
+	public void resetPlayer() {
+		this.PV = this.PVMax;
+		this.amountOfPotions = 3;
 	}
 }
