@@ -10,18 +10,22 @@ public class Monster {
 	private double defense;
 	private double originalDefense;
 	private int agility;
-
+	private String strongAgainst;
+	private String weakAgainst;
+	
 	Potion potion = new Potion();
 	private int amountOfPotions = potion.getAmountPotions();
 	Random random = new Random();
 
-	public Monster(String monsterName, int PV, int damage, int defense, int agility) {
+	public Monster(String monsterName, int PV, int damage, int defense, int agility, String strongAgainst, String weakAgainst) {
 		this.monsterName = monsterName;
 		this.PV = PV;
 		this.PVMax = PV;
 		this.damage = damage;
 		this.defense = defense;
 		this.agility = agility;
+		this.strongAgainst = strongAgainst;
+		this.weakAgainst = weakAgainst;
 	}
 
 	public String getName() {
@@ -65,8 +69,30 @@ public class Monster {
 		this.PV = PV;
 	}
 
-	public void receiveDamage(double damage) {
-		this.PV -= (damage - this.defense);
+	public double receiveDamage(double damage, String damageType) {
+		if(damageType == strongAgainst) {
+			System.out.println("the "+ this.monsterName + "is strong against "+ damageType +", damage has been reduced!");
+			damage = (damage - this.defense)/2.00;
+		}
+		else if(damageType == weakAgainst) {
+			System.out.println("the "+ this.monsterName + "is weak against "+ damageType +", damage has been increased!");
+			damage = (damage - this.defense)*1.50;
+		}
+		else {
+			damage = (damage - this.defense);
+		}
+		this.PV -= damage;
+		return damage;
+		
+	}
+	
+
+	public String getStrongAgainst() {
+		return strongAgainst;
+	}
+
+	public String getWeakAgainst() {
+		return weakAgainst;
 	}
 
 	public int getAmountOfPotions() {

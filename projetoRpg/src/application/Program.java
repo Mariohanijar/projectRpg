@@ -7,6 +7,7 @@ import java.util.Scanner;
 import entities.Armor;
 import entities.Battle;
 import entities.Formatting;
+import entities.Magic;
 import entities.Monster;
 import entities.Player;
 import entities.Story;
@@ -27,17 +28,18 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner input = new Scanner(System.in);
 		Random random = new Random();
-		Monster mimic = new Monster("Mimic", 5, 2, 1, 2);
-		Monster slime = new Monster("Slime", 10, 3, 1, 2);
-		Monster globin = new Monster("Globin", 15, 4, 2, 8);
-		Monster kobold = new Monster("Kobold", 20, 5, 3, 4);
-		Monster vampire = new Monster("Vampire", 2, 4, 2, 8);
-		Monster beholder = new Monster("Beholder", 2, 4, 2, 8);
-		Monster morgarothRoyalGuard = new Monster("Morgaroth the royal guard", 2, 10, 8, 6);
-		Monster ThalricBountyHunter = new Monster("Thalric the Bounty hunter", 2, 8, 6, 10);
 		
-		Weapon shortSickle = new Weapon(3, "light", "Short Sicle");
-		Weapon heavyAxe = new Weapon(7, "heavy", "Heavy Axe");
+		//Monster mimic = new Monster("Mimic", 5, 2, 1, 2);
+		Monster slime = new Monster("Slime", 10, 8, 1, 2, "poison", "fire");
+		Monster globin = new Monster("Globin", 15, 7, 2, 8, "ice", "poison");
+		Monster kobold = new Monster("Kobold", 20, 6, 3, 4, "fire", "ice");
+		//Monster vampire = new Monster("Vampire", 2, 4, 2, 8);
+		//Monster beholder = new Monster("Beholder", 2, 4, 2, 8);
+		//Monster morgarothRoyalGuard = new Monster("Morgaroth the royal guard", 2, 10, 8, 6);
+		//Monster ThalricBountyHunter = new Monster("Thalric the Bounty hunter", 2, 8, 6, 10);
+		
+		Weapon shortSickle = new Weapon(3, "light", "Short Sicle", "Slash");
+		Weapon heavyAxe = new Weapon(7, "heavy", "Heavy Axe", "Slash");
 		
 		Armor leatherArmor = new Armor(3, "Leather Armour");
 		Armor chainArmor = new Armor(5, "Chain Armour");
@@ -45,6 +47,10 @@ public class Program {
 		Armor splintArmor = new Armor(12, "Splint Armour");
 		Armor plateArmor = new Armor(17, "Plate Armour");
 		Armor berserkArmor = new Armor(9000, "Berserk Armour");
+		
+		Magic fireball = new Magic("Fire ball", "fire", 15);
+		Magic iceShards = new Magic("Ice Shards", "ice", 15);
+		Magic infestation = new Magic("Infestation", "poison", 15);
 		
 		
 		//Story.background();
@@ -56,19 +62,23 @@ public class Program {
 		//Story.firstPartStory(input, player);
 		//Story.secondPartStory(input,player);
 		player.setWeapon(playerActions.weaponSelector(input, shortSickle, heavyAxe));
+		player.addMagic(playerActions.magicSelector(input, fireball, iceShards, infestation));
+		player.setArmor(playerActions.armorSelector(input, leatherArmor, chainArmor));
+		System.out.println(player);
 		//Story.thirdPartStory(input,player);
 		//player.setMagic(playerActions.magicSelector(input));
 		//Story.fourthPartStory(input,player);
+		Battle.battleWithThreeMonsters(slime, globin, kobold, player, input, random);
 		
-		Battle.battleWithTwoMonsters(vampire, mimic, player, input, random);
+		//Battle.battleWithTwoMonsters(vampire, mimic, player, input, random);
 		//Story.fifthPartStory(input,player,morgarothRoyalGuard);
-		player.setArmor(playerActions.armorSelector(input, leatherArmor, chainArmor));
+		
 		//Story.sixthPartStory(input,player);
 		Story.seventPartStory(input,player);
 		Story.finalOne(input,player);
 		Story.finalTwo(input,player);
 		
-		//Battle.battleWithThreeMonsters(slime, globin, kobold, player, input, random);
+		
 		
 		//Battle.battleWithOneMonster(beholder, player, input);
 		

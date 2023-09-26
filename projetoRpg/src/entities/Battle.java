@@ -42,26 +42,36 @@ public class Battle {
         player.setDefense(player.getOriginalDefense());
         System.out.println("\n" + player.getName() + "'s life: " + player.getLife() + " || " + monster.getName()
         + "'s life: " + monster.getPV() + "\n\n");
-        System.out.println("what do you want to do?\n ATTACK[1] DEFENSE[2] POTION[3]");
+        System.out.println("what do you want to do?\n ATTACK[1] MAGIC[2] DEFENSE[3] POTION[4]");
 
         int choice = input.nextInt();
+        int magicChosen;
         Formatting.lineBreaker();
 
         switch (choice) {
         case 1:
-            damage = player.getDamage();
-            
-            monster.receiveDamage(damage);
+            damage = monster.receiveDamage(player.getDamage(), player.getWeaponType());
             System.out.println("\n\nyou dealt " + damage + " damage!!!\n\n");
             Formatting.lineBreaker();
             return false;
         case 2:
+        	System.out.println("what magic do you want to use?: ");
+        	for(int i = 0; i < player.getMagicLenght(); i++) {
+        		System.out.println(player.getMagic(i) + "["+i+"] ");
+        	}
+        	magicChosen = input.nextInt();
+        	damage = monster.receiveDamage(player.getMagicDamage(magicChosen), player.getMagicType(magicChosen));
+        	Formatting.lineBreaker();
+        	System.out.println("\n\nyou dealt " + damage + " damage!!!\n\n");
+        	Formatting.lineBreaker();
+        	return false;
+        case 3:
             player.setDefense(player.getDefense() * 2);
             System.out.println("you defended yourself!!!");
             Formatting.lineBreaker();
             return false;
 
-        case 3:
+        case 4:
             heal = player.drinkPotions();
             if (player.getAmountPotions() == 0) {
                 System.out.println("you don't have enough potions!!");
@@ -103,8 +113,7 @@ public class Battle {
         monsterChoice = (random.nextInt(3) + 1);
         switch (monsterChoice) {
         case 1:
-            monsterDamage = monster.getDamage();
-            player.receiveDamage(monsterDamage);
+            monsterDamage = player.receiveDamage(monster.getDamage());
             System.out.println("the " + monster.getName() + " dealt " + monsterDamage + " damage!\n\n");
             Formatting.lineBreaker();
             return false;

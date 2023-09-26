@@ -71,44 +71,42 @@ public class playerActions {
 		
 	}
 	
-	public static Magic magicSelector(Scanner input) {
-		Magic fireball = new Magic(2, "Fire ball");
-		Magic iceShards = new Magic(1, "Ice Shards");
-		Magic infestation = new Magic(1, "Infestation");
+	public static Magic magicSelector(Scanner input, Magic magic1, Magic magic2, Magic magic3) {
+		
 		
 		while(1 != 0) {
-			System.out.println("which magic spell do you want? Fire Ball[1], Ice Shards[2], Infestation[3]");
+			System.out.println("which magic spell do you want? "+ magic1.getMagicName() +"[1], "+ magic2.getMagicName() +"[2], "+magic3.getMagicName()+"[3]");
 			int choice = input.nextInt();
 			int x;
 			switch (choice) {
 				case 1:
-					System.out.println("\n"+fireball);
+					System.out.println("\n"+magic1.magicStatus());
 					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
-						return fireball;
+						return magic1;
 					}
 					else {
 						continue;
 					}
 
 				case 2:
-					System.out.println("\n"+iceShards);
+					System.out.println("\n"+magic2.magicStatus());
 					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
-						return iceShards;
+						return magic2;
 					}
 					else {
 						continue;
 					}
 					
 				case 3:
-					System.out.println("\n"+infestation);
+					System.out.println("\n"+magic3.magicStatus());
 					System.out.println("\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if(x == 1) {
-						return infestation;
+						return magic3;
 					}
 					
 					else {

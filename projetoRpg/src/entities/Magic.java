@@ -1,30 +1,47 @@
 package entities;
-import java.util.Scanner;
-import java.util.Random;
+
 
 public class Magic {
-	private int manaCost;
 	private String magicName;
-	//private int magic[] = new int[4];
+	private String damageType;
 	
-	public Magic(int manaCost, /*int magic[],*/ String magicName) {
-		this.manaCost = manaCost;
-		//this.magic = magic;
+	private double damage;
+	
+	
+	public Magic(String magicName, String damageType, double damage) {
 		this.magicName = magicName;
+		this.damageType = damageType;
+		this.damage = damage;
 	}
-	/*
-	public int getMagic() {
-		return magic;
-	}
-	*/
-	public int getManaCost() {
-		return manaCost;
-	}
+	
+	
 	public String getMagicName() {
 		return magicName;
 	}
+
+	public String getDamageType() {
+		return damageType;
+	}
+
+	public void setDamageType(String damageType) {
+		this.damageType = damageType;
+	}
+
+
+	public double getDamage() {
+		return damage;
+	}
+
+	public void setDamage(double damage) {
+		this.damage = damage;
+	}
+	
+	public String magicStatus() {
+		return "Magic status: \n" + "magic name: " + magicName + "\n damageType: "+ damageType + "\n damage: "+ damage;
+	}
+
 	public String toString() {
-		return "Magic status: \n" + "magic name: " + magicName + "\nnecessary mana: " + manaCost;
+		return magicName;
 	}
 	
 	

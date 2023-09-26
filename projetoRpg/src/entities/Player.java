@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Player {
@@ -8,8 +9,6 @@ public class Player {
 	private double PVMax;
 	private double mp;
 	private double mpMax;
-
-	
 
 	private int strength;
 	private int constitution;
@@ -20,7 +19,7 @@ public class Player {
 	// Equipment
 	private Weapon weapon;
 	private Armor armor;
-	private Magic magic;
+	private ArrayList<Magic> magics = new ArrayList<Magic>();
 	private Potion potion;
 	private int amountOfPotions;
 	private double defense = this.getDefense();
@@ -67,6 +66,14 @@ public class Player {
 		this.mp = mp;
 	}
 
+	public int getMagicLenght() {
+		return magics.size();
+	}
+
+	public Magic getMagic(int i) {
+		return magics.get(i);
+	}
+
 	public double getMpMax() {
 		return mpMax;
 	}
@@ -74,17 +81,13 @@ public class Player {
 	public void setMpMax(double mpMax) {
 		this.mpMax = mpMax;
 	}
-	
+
 	public void setConstitution(int constitution) {
 		this.constitution = constitution;
 	}
 
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
-	}
-
-	public void setMagic(Magic magic) {
-		this.magic = magic;
 	}
 
 	public void setArmor(Armor armor) {
@@ -121,6 +124,10 @@ public class Player {
 
 	public String getWeaponCategory() {
 		return weapon.getWeaponCategory();
+	}
+
+	public String getWeaponType() {
+		return weapon.getDamageType();
 	}
 
 	public int getStrength() {
@@ -163,8 +170,22 @@ public class Player {
 		this.amountOfPotions -= set;
 	}
 
-	public void receiveDamage(double damage) {
+	public double receiveDamage(double damage) {
+		damage = (damage - this.defense);
 		this.PV -= damage;
+		return damage;
+	}
+
+	public void addMagic(Magic magic) {
+		this.magics.add(magic);
+	}
+
+	public String getMagicType(int i) {
+		return magics.get(i).getDamageType();
+	}
+
+	public double getMagicDamage(int i) {
+		return magics.get(i).getDamage();
 	}
 
 	public String toString() {
@@ -172,7 +193,7 @@ public class Player {
 				+ strength + " \n|\n| Character's constitution: " + constitution + " \n|\n| Character's agility: "
 				+ agility + " \n|\n| Character's dexterity: " + dexterity + " \n|\n| Character's coins: " + coin
 				+ " \n|\n| Character's weapon: " + weapon.getWeaponName() + " \n|\n| Character's armor: "
-				+ armor.getArmorName() + " \n|\n| magic chosen: " + magic.getMagicName();
+				+ armor.getArmorName() + " \n|\n| magics: " + magics;
 	}
 
 	public void setPVMax(double pVMax) {
