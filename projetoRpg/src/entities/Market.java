@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Scanner;
+
 /**
  * 
  */
@@ -8,17 +10,37 @@ public class Market {
 	private String district;
 	private String products;
 	private String description;
-	private int cost;
+	private int magicCost;
+	private int potionCost;
+	private int armorCost;
+	private int weaponCost;
 	
-	public Market(String mercant, String district, String products, String description, int cost) {
+	
+	public void sellWeapon(Scanner input, Player player, Weapon weapon) {
+			
+		 player.setWeapon(weapon);
+	}
+	
+	
+	
+	
+	
+	public Market(String mercant, String district, String products, String description, int magicCost, int potionCost,
+			int armorCost, int weaponCost) {
 		this.mercant = mercant;
 		this.district = district;
 		this.products = products;
 		this.description = description;
-		this.cost = cost;
-		
+		this.magicCost = magicCost;
+		this.potionCost = potionCost;
+		this.armorCost = armorCost;
+		this.weaponCost = weaponCost;
 	}
-	
+
+
+
+
+
 	public String getMercant() {
 		return mercant;
 	}
@@ -51,23 +73,74 @@ public class Market {
 		this.products = products;
 	}
 	
-	public int getCost() {
-		return cost;
+
+	public int getMagicCost() {
+		return magicCost;
 	}
+
+
+
+
+	public void setMagicCost(int magicCost) {
+		this.magicCost = magicCost;
+	}
+
+
+
+
+	public int getPotionCost() {
+		return potionCost;
+	}
+
+
+
+
+	public void setPotionCost(int potionCost) {
+		this.potionCost = potionCost;
+	}
+
+
+
+
+	public int getArmorCost() {
+		return armorCost;
+	}
+
+
+
+
+	public void setArmorCost(int armorCost) {
+		this.armorCost = armorCost;
+	}
+
+
+
+
+	public int getWeaponCost() {
+		return weaponCost;
+	}
+
+
+
+
+	public void setWeaponCost(int weaponCost) {
+		this.weaponCost = weaponCost;
+	}
+
 	
-	public void setCost(int cost) {
-		this.cost = cost;
-	}
+	
+	
+
 
 	@Override
 	public String toString() {
-		return "Market [mercant=" + mercant + ", district=" + district + ", products=" + products + ", description="
-				+ description + ", cost=" + cost + "]";
+		return "Hello my name is " + mercant + ", I'm from " + district + "\nso what can i help you? I sell " + products + ", description="
+				+ description + ", cost" + "]";
 	}
 
-	
-	
-	
+
+
+
 	
 	
 }

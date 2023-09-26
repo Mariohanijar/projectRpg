@@ -8,7 +8,7 @@ public class playerActions {
 		System.out.println("What is your character's name");
 		String name = input.next();
 		
-		int strength = 0, constitution = 0, agility = 0, dexterity = 0, pv, coin = 0;
+		int strength = 0, constitution = 0, agility = 0, dexterity = 0, pv, coin;
 		 
 		while(strength + constitution + agility + dexterity != 15) {
 			System.out.println("how many points do you want to put in strength?:");
@@ -117,37 +117,121 @@ public class playerActions {
 		}
 	}
 	
-	public static Market marketsOnGame(Scanner input) {
-		Market magnus = new Market("Magnus", "Down Hill", "1. sword, 2. shield, 3. magic", "market of downhill", 2);
-		Market freya= new Market("freya", "Dirty Helment", "1.helment, 2. potion, 3. magic", "market of Dirty Helment", 3);
+	public static Market marketsOnGame(Scanner input, Player player, Market market, Magic magic1, Potion potion1, Weapon weapon, Armor armor) {
+		
 		
 		
 		while(1 != 0) {
-			System.out.println("which magic spell do you want? Fire Ball[1], Ice Shards[2], Infestation[3]");
+			System.out.println("\nHello traveler what do you want to buy? \n1. " + magic1.getMagicName() +  " = " + market.getMagicCost() + "\n2. potion = " + market.getPotionCost() + "\n3. " + armor.getArmorName() + " = " + market.getArmorCost() + "\n4. " + weapon.getWeaponName()	+ " = " + market.getWeaponCost() +"\n5.sair ");
 			int choice = input.nextInt();
 			int x;
+			int y;
 			switch (choice) {
 				case 1:
-					System.out.println("\n"+magnus);
-					System.out.println("\nAre you sure? yes[1] no[2]");
-					x = input.nextInt();
-					if(x == 1) {
-						return magnus;
+					if(player.getCoin() >= market.getMagicCost()) {
+						
+						System.out.println("\nAre you sure? yes[1] no[2]");
+						//return weapon1;
+						x = input.nextInt();
+						if(x == 1) {
+							magic1.getMagicName();
+							player.setCoin(player.getCoin()-market.getMagicCost());
+							player.addMagic(magic1);
+							System.out.println("\nDo you want something more? yes[1] no[2]");
+							y = input.nextInt();
+							if(y == 1) {
+							return market;
+							}
+							else {
+								continue;
+							}
+						}
+						else {
+							continue;
+						}
+						
 					}
 					else {
+						System.out.println("\nyou don't have enough money");
 						continue;
 					}
-
 				case 2:
-					System.out.println("\n"+freya);
-					System.out.println("\nAre you sure? yes[1] no[2]");
-					x = input.nextInt();
-					if(x == 1) {
-						return freya;
+					if(player.getCoin() >= market.getPotionCost()) {
+						
+						System.out.println("\nAre you sure? yes[1] no[2]");
+						//return weapon1;
+						x = input.nextInt();
+						if(x == 1) {
+							player.setAmountPotions(-1);
+							player.setCoin(player.getCoin()-market.getPotionCost());
+							System.out.println("\nIs that all you want? yes[1] no[2]");
+							y = input.nextInt();
+							if(y == 1) {
+							return market;
+							}
+							else {
+								continue;
+							}
+						
+						}
+						else {
+							continue;
+						}
 					}
 					else {
+						System.out.println("\nyou don't have enough money");
 						continue;
 					}
+				case 3:
+					if(player.getCoin() >= market.getWeaponCost()) {
+						
+						System.out.println("\nAre you sure? yes[1] no[2]");
+						x = input.nextInt();
+						if(x == 1) {
+							player.setCoin(player.getCoin()-market.getWeaponCost());
+							player.setWeapon(weapon);
+							System.out.println("\nDo you want something more? yes[1] no[2]");
+							y = input.nextInt();
+							if(y == 1) {
+							return market;
+							}
+							else {
+								continue;
+							}
+						}
+						else {
+							continue;
+						}
+						
+					}
+				case 4:
+					if(player.getCoin() >= market.getArmorCost()) {
+						
+						System.out.println("\nAre you sure? yes[1] no[2]");
+						x = input.nextInt();
+						if(x == 1) {
+							player.setCoin(player.getCoin()-market.getArmorCost());
+							player.setArmor(armor);
+							System.out.println("\nDo you want something more? yes[1] no[2]");
+							y = input.nextInt();
+							if(y == 1) {
+							return market;
+							}
+							else {
+								continue;
+							}
+						}
+						else {
+							continue;
+						}
+						
+					}
+				case 5:
+					return market;
+	
+					
+
+				
 					
 					
 			}

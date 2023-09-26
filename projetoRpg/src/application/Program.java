@@ -8,6 +8,7 @@ import entities.Armor;
 import entities.Battle;
 import entities.Formatting;
 import entities.Magic;
+import entities.Market;
 import entities.Monster;
 import entities.Player;
 import entities.Story;
@@ -40,6 +41,7 @@ public class Program {
 		
 		Weapon shortSickle = new Weapon(3, "light", "Short Sicle", "Slash");
 		Weapon heavyAxe = new Weapon(7, "heavy", "Heavy Axe", "Slash");
+		Weapon bow = new Weapon(10, "heavy", "Heavy Bow", "Slash");
 		
 		Armor leatherArmor = new Armor(3, "Leather Armour");
 		Armor chainArmor = new Armor(5, "Chain Armour");
@@ -53,14 +55,19 @@ public class Program {
 		Magic infestation = new Magic("Infestation", "poison", 15);
 		
 		
+		Market magnus = new Market("Magnus", "Down Hill", "1.a", "market of sown hill", 20, 10, 50, 60);
+		//Market freya= new Market("freya", "Dirty Helment", "1.helment, 2. potion, 3. magic", "market of Dirty Helment", 3,7,4,9);
 		//Story.background();
 		Formatting.slowPrint50("\n \nGoldriver, the legacy of Goldendelve \n \n");
 		
 		
 		
 		Player player = playerActions.characterCreation(input, random);
+		
 		//Story.firstPartStory(input, player);
 		//Story.secondPartStory(input,player);
+		System.out.println(magnus);
+		playerActions.marketsOnGame(input, player, magnus, infestation, null, bow, berserkArmor);
 		player.setWeapon(playerActions.weaponSelector(input, shortSickle, heavyAxe));
 		player.addMagic(playerActions.magicSelector(input, fireball, iceShards, infestation));
 		player.setArmor(playerActions.armorSelector(input, leatherArmor, chainArmor));

@@ -193,7 +193,7 @@ public class Player {
 				+ strength + " \n|\n| Character's constitution: " + constitution + " \n|\n| Character's agility: "
 				+ agility + " \n|\n| Character's dexterity: " + dexterity + " \n|\n| Character's coins: " + coin
 				+ " \n|\n| Character's weapon: " + weapon.getWeaponName() + " \n|\n| Character's armor: "
-				+ armor.getArmorName() + " \n|\n| magics: " + magics;
+				+ armor.getArmorName() + " \n|\n| magics: " + magics + " \n|\n| amount of cure potions: " + amountOfPotions;
 	}
 
 	public void setPVMax(double pVMax) {
