@@ -4,36 +4,37 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Battle {
-	public static void battleWithThreeMonsters(Monster monster, Monster monster2, Monster monster3, Player player, Scanner input, Random random) {
+	public static boolean battleWithThreeMonsters(Monster monster, Monster monster2, Monster monster3, Player player, Scanner input, Random random) {
 		int randomMonster = random.nextInt(3)+1;
 		
 		
 		 if (randomMonster == 1) {
-			 Battle.combat(input,  monster,  player);
+			 return Battle.combat(input,  monster,  player);
 	     }
 		 else if (randomMonster == 2) {
-			 Battle.combat(input,  monster2,  player);
+			 return Battle.combat(input,  monster2,  player);
 		 }
 		 else if (randomMonster == 3) {
-			 Battle.combat(input,  monster3,  player);
+			 return Battle.combat(input,  monster3,  player);
 		 }
+		 return true;
 	}
 	
-	public static void battleWithTwoMonsters(Monster monster, Monster monster2, Player player, Scanner input, Random random) {
+	public static boolean battleWithTwoMonsters(Monster monster, Monster monster2, Player player, Scanner input, Random random) {
 		int randomMonster = random.nextInt(2)+1;
 		
 		
 		 if (randomMonster == 1) {
-			 Battle.combat(input,  monster,  player);
+			 return Battle.combat(input,  monster,  player);
 	     }
 		 else if (randomMonster == 2) {
-			 Battle.combat(input,  monster2,  player);
+			 return Battle.combat(input,  monster2,  player);
 		 }
-		 
+		 return true;
 	}
 	
-	public static void battleWithOneMonster(Monster monster, Player player, Scanner input) {
-			 Battle.combat(input,  monster,  player);
+	public static boolean battleWithOneMonster(Monster monster, Player player, Scanner input) {
+			 return Battle.combat(input,  monster,  player);
 	}
 	
     public static boolean playerTurn(Scanner input, Monster monster, Player player) {
@@ -159,7 +160,7 @@ public class Battle {
         
     }
 
-    public static void combat(Scanner input, Monster monster, Player player) {
+    public static boolean combat(Scanner input, Monster monster, Player player) {
         Random random = new Random();
         boolean pass = true;
         System.out.println("You find a " + monster.getName() + "!\n\n\n\n THE BATTLE BEGINS!!!");
@@ -200,9 +201,14 @@ public class Battle {
         }
         if(monster.getPV() <= 0){
             System.out.println("You defeated the " + monster.getName());
+            Formatting.lineBreaker();
+            return true;
         }
         else{
-            System.out.println("You have been defeated");
+            System.out.println("You have been defeated\n");
+            System.out.println("returning to the menu....");
+            Formatting.lineBreaker();
+            return false;
         }
         
     }

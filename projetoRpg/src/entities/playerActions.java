@@ -271,6 +271,8 @@ public class playerActions {
 		
 	}
 	public static void levelUp(Scanner input, int level, Player player) {
+		System.out.println("you are feeling your body getting stronger.....\n\n");
+		Formatting.lineBreaker();
         System.out.println("Congratulations you leveled up!!!!! \nYou have gained "+ level + " attribute points, allocate them correctly:\n\n");
 
         int strength = 0, constitution = 0, agility = 0, dexterity = 0;

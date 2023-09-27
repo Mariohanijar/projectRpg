@@ -30,10 +30,13 @@ public class Program {
 		}
 		
 	}
+	
+	
 
 	public static void menu() {
-		Formatting.slowPrint10("what do you want to do?");
-		Formatting.slowPrint10("1. background, 2. game, 3.exit");
+		Formatting.slowPrint10("\nwhat do you want to do?\n");
+		Formatting.slowPrint10("[1] game [2] background [3]exit\n");
+		
 	}
 	
 	
@@ -41,15 +44,16 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner input = new Scanner(System.in);
 		Random random = new Random();
+		boolean game;
 		
-		//Monster mimic = new Monster("Mimic", 5, 2, 1, 2);
-		Monster slime = new Monster("Slime", 20, 8, 2, 1, "poison", "fire");
-		Monster globin = new Monster("Globin", 25, 7, 4, 3, "ice", "poison");
-		Monster kobold = new Monster("Kobold", 30, 12, 6, 2, "fire", "ice");
+		Monster mimic = new Monster("Mimic", 5, 2, 1, 2, "wind", "fire");
+		Monster slime = new Monster("Slime", 30, 8, 2, 1, "poison", "fire");
+		Monster globin = new Monster("Globin", 35, 7, 4, 3, "ice", "poison");
+		Monster kobold = new Monster("Kobold", 40, 12, 6, 2, "fire", "ice");
 		Monster vampire = new Monster("Vampire", 2, 20, 10, 2, "wind", "fire");
 		Monster beholder = new Monster("Beholder", 2, 30, 10, 3, "wind", "ice");
-		Monster morgarothRoyalGuard = new Monster("Morgaroth the royal guard", 40, 25, 15, 1, "fire","electricity");
-		Monster ThalricBountyHunter = new Monster("Thalric the Bounty hunter", 60, 24, 15, 1, "ice","poison");
+		Monster morgarothRoyalGuard = new Monster("Morgaroth the royal guard", 50, 25, 15, 1, "fire","electricity");
+		Monster ThalricBountyHunter = new Monster("Thalric the Bounty hunter", 70, 24, 15, 1, "ice","poison");
 		
 		
 		Weapon shortSickle = new Weapon(3, "light", "Short Sicle", "Slash");
@@ -71,12 +75,13 @@ public class Program {
 		
 		Market magnus = new Market("Magnus", "Down Hill", "1.a", "market of sown hill", 20, 10, 50, 60);
 		//Market freya= new Market("freya", "Dirty Helment", "1.helment, 2. potion, 3. magic", "market of Dirty Helment", 3,7,4,9);
-		//Story.background();
 		Formatting.slowPrint50("\n \nGoldriver, the legacy of Goldendelve \n \n");
+		while(1 != 0) {
 		
-		
-		
-		Player player = playerActions.characterCreation(input, random);
+		menu();
+		int choice = input.nextInt();
+		if(choice == 1) {
+			Player player = playerActions.characterCreation(input, random);
 		
 		//Story.firstPartStory(input, player);
 		//Story.secondPartStory(input,player);
@@ -86,10 +91,14 @@ public class Program {
 		player.addMagic(playerActions.magicSelector(input, fireball, iceShards, infestation));
 		player.setArmor(playerActions.armorSelector(input, leatherArmor, chainArmor));
 		System.out.println(player);
+		if(mimicGame(input, random)) {
+			Battle.battleWithOneMonster(mimic, player, input);
+		}
 		//Story.thirdPartStory(input,player);
 		//player.setMagic(playerActions.magicSelector(input));
 		//Story.fourthPartStory(input,player);
-		Battle.battleWithThreeMonsters(slime, globin, kobold, player, input, random);
+		game = Battle.battleWithThreeMonsters(slime, globin, kobold, player, input, random);
+		if(!game) continue;
 		playerActions.levelUp(input, 5, player);
 		player.resetPlayer();
 		System.out.println(player);
@@ -104,10 +113,20 @@ public class Program {
 		//Story.seventPartStory(input,player);
 		//Story.finalOne(input,player);
 		//Story.finalTwo(input,player);
-		
-		
-		
 		//Battle.battleWithOneMonster(beholder, player, input);
+		}
+		if(choice == 2) {
+			Story.background();
+		}
+		if(choice == 3) {
+			System.out.println("thank you for playing!!!!");
+			break;
+		}
+		}
+		
+		
+		
+		
 		
 		
 		
