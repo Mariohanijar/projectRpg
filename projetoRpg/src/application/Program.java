@@ -35,7 +35,7 @@ public class Program {
 
 	public static void menu() {
 		Formatting.slowPrint10("\nwhat do you want to do?\n");
-		Formatting.slowPrint10("[1] game [2] background [3]exit\n");
+		Formatting.slowPrint10("[1] Start Game [2] Background [3] Exit\n");
 		
 	}
 	
@@ -72,9 +72,9 @@ public class Program {
 		Armor plateArmor = new Armor(17, "Plate Armour");
 		Armor berserkArmor = new Armor(9000, "Berserk Armour");
 		
-		Magic fireball = new Magic("Fire ball", "fire", 20);
-		Magic iceShards = new Magic("Ice Shards", "ice", 10);
-		Magic infestation = new Magic("Infestation", "poison", 10);
+		Magic fireBall = new Magic("Fire ball", "fire", 20);
+		Magic iceShards = new Magic("Ice Shards", "ice", 15);
+		Magic infestation = new Magic("Infestation", "poison", 15);
 		Magic windBlow = new Magic("Wind Blow", "wind", 15);
 		Magic lightAttack = new Magic("Light Attack", "electricity", 15);
 		
@@ -107,23 +107,25 @@ public class Program {
 		Story.theWayOutOfCave(input, player);
 		game = Battle.battleWithThreeMonsters(slime, globin, kobold, player, input, random);
 		if(!game) continue;
+		player.resetPlayer();
 		Story.secondPartStory(input,player);
 		
 		player.setWeapon(playerActions.weaponSelector(input, shortSickle, heavyAxe));
 		Story.magicDialogue(input, player);
-		player.addMagic(playerActions.magicSelector(input, windBlow, infestation, iceShards));
+		player.addMagic(playerActions.magicSelector(input, fireBall, infestation, iceShards));
 		playerActions.levelUp(input, 5, player);
+		player.resetPlayer();
 		player.setArmor(playerActions.armorSelector(input, leatherArmor, chainArmor));
 		Story.thirdPartStory(input,player);
 		
 			while(choice !=3) {
-				Formatting.slowPrint10("\n\n[1] buy something in the market [2] play gambling  games [3] rent a room [4] see the inventory");
+				Formatting.slowPrint10("\n\n[1] buy something in the market [2] play gambling  games [3] rent a room [4] see the inventory\n");
 				choice = input.nextInt();
 			
 			if(choice == 1)
 			{
 				System.out.println(magnus);
-				playerActions.marketsOnGame(input, player, magnus, infestation, null, bow, ringMailArmor);
+				playerActions.marketsOnGame(input, player, magnus, windBlow, null, bow, ringMailArmor);
 			}
 			else if(choice == 2) {
 					if(player.getCoin() >= 40 && choice == 2) {
@@ -163,15 +165,15 @@ public class Program {
 		if(!game) continue;
 		Story.fifthPartStory(input, player, theGambleMan);
 		player.setArmor(playerActions.armorSelector(input, splintArmor, plateArmor));
+		playerActions.levelUp(input, 10, player);
 		player.resetPlayer();
-		playerActions.levelUp(input, 5, player);
 		
 		Story.sixthPartStory(input,player);
 		choice = input.nextInt();
 		if(choice == 1) {
 			System.out.println(freya);
 			playerActions.marketsOnGame(input, player, freya, lightAttack, null, dragonSlayer, berserkArmor);
-			System.out.println("\nthamk you young traveler");
+			System.out.println("\nthank you young traveler");
 		}
 		
 		Story.seventPartStory(input,player);
@@ -185,11 +187,11 @@ public class Program {
 		choice = input.nextInt();
 		if(choice == 1) {
 			Story.finalTwo(input, player);
-			break;
+			continue;
 		}
 		else {
 			Story.finalOne(input, player);
-			break;
+			continue;
 		}
 		
 		}

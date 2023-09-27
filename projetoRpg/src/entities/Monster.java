@@ -81,6 +81,10 @@ public class Monster {
 		else {
 			damage = (damage - this.defense);
 		}
+		if(damage <= 0) {
+			this.PV -= 0;
+			return 0;
+		}
 		this.PV -= damage;
 		return damage;
 		

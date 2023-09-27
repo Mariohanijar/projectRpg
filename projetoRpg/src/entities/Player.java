@@ -49,9 +49,10 @@ public class Player {
 		if (weapon.getWeaponCategory() == "light") {
 			return Math.round(weapon.getWeaponDamage() + (random.nextDouble(6) + 1) + (random.nextDouble(6) + 1)
 					+ (random.nextDouble(4) + 1) + (this.dexterity / 4));
-		} else {
+		} else if(weapon.getWeaponCategory() == "heavy") {
 			return Math.round(weapon.getWeaponDamage() + (random.nextDouble(12) + 1) + 0.1 * this.strength);
 		}
+		return amountOfPotions;
 	}
 
 	public int getConstitution() {
@@ -172,6 +173,10 @@ public class Player {
 
 	public double receiveDamage(double damage) {
 		damage = (damage - this.defense);
+		if(damage <= 0) {
+			this.PV -= 0;
+			return 0;
+		}
 		this.PV -= damage;
 		return damage;
 	}
