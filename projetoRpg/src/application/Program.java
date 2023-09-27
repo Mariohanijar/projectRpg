@@ -43,13 +43,14 @@ public class Program {
 		Random random = new Random();
 		
 		//Monster mimic = new Monster("Mimic", 5, 2, 1, 2);
-		Monster slime = new Monster("Slime", 10, 8, 1, 2, "poison", "fire");
-		Monster globin = new Monster("Globin", 15, 7, 2, 8, "ice", "poison");
-		Monster kobold = new Monster("Kobold", 20, 6, 3, 4, "fire", "ice");
-		//Monster vampire = new Monster("Vampire", 2, 4, 2, 8);
-		//Monster beholder = new Monster("Beholder", 2, 4, 2, 8);
-		//Monster morgarothRoyalGuard = new Monster("Morgaroth the royal guard", 2, 10, 8, 6);
-		//Monster ThalricBountyHunter = new Monster("Thalric the Bounty hunter", 2, 8, 6, 10);
+		Monster slime = new Monster("Slime", 20, 8, 2, 1, "poison", "fire");
+		Monster globin = new Monster("Globin", 25, 7, 4, 3, "ice", "poison");
+		Monster kobold = new Monster("Kobold", 30, 12, 6, 2, "fire", "ice");
+		Monster vampire = new Monster("Vampire", 2, 20, 10, 2, "wind", "fire");
+		Monster beholder = new Monster("Beholder", 2, 30, 10, 3, "wind", "ice");
+		Monster morgarothRoyalGuard = new Monster("Morgaroth the royal guard", 40, 25, 15, 1, "fire","electricity");
+		Monster ThalricBountyHunter = new Monster("Thalric the Bounty hunter", 60, 24, 15, 1, "ice","poison");
+		
 		
 		Weapon shortSickle = new Weapon(3, "light", "Short Sicle", "Slash");
 		Weapon heavyAxe = new Weapon(7, "heavy", "Heavy Axe", "Slash");
@@ -65,6 +66,8 @@ public class Program {
 		Magic fireball = new Magic("Fire ball", "fire", 10);
 		Magic iceShards = new Magic("Ice Shards", "ice", 10);
 		Magic infestation = new Magic("Infestation", "poison", 10);
+		Magic windBlow = new Magic("Wind Blow", "wind", 15);
+		Magic lightAttack = new Magic("Light Attack", "electricity", 15);
 		
 		Market magnus = new Market("Magnus", "Down Hill", "1.a", "market of sown hill", 20, 10, 50, 60);
 		//Market freya= new Market("freya", "Dirty Helment", "1.helment, 2. potion, 3. magic", "market of Dirty Helment", 3,7,4,9);
@@ -77,8 +80,8 @@ public class Program {
 		
 		//Story.firstPartStory(input, player);
 		//Story.secondPartStory(input,player);
-		System.out.println(magnus);
-		playerActions.marketsOnGame(input, player, magnus, infestation, null, bow, berserkArmor);
+		//System.out.println(magnus);
+		//playerActions.marketsOnGame(input, player, magnus, infestation, null, bow, berserkArmor);
 		player.setWeapon(playerActions.weaponSelector(input, shortSickle, heavyAxe));
 		player.addMagic(playerActions.magicSelector(input, fireball, iceShards, infestation));
 		player.setArmor(playerActions.armorSelector(input, leatherArmor, chainArmor));
@@ -87,14 +90,20 @@ public class Program {
 		//player.setMagic(playerActions.magicSelector(input));
 		//Story.fourthPartStory(input,player);
 		Battle.battleWithThreeMonsters(slime, globin, kobold, player, input, random);
+		playerActions.levelUp(input, 5, player);
+		player.resetPlayer();
+		System.out.println(player);
+		Battle.battleWithOneMonster(slime, player, input);
+		Battle.battleWithOneMonster(morgarothRoyalGuard, player, input);
+		Battle.battleWithOneMonster(ThalricBountyHunter, player, input);
 		
 		//Battle.battleWithTwoMonsters(vampire, mimic, player, input, random);
 		//Story.fifthPartStory(input,player,morgarothRoyalGuard);
 		
 		//Story.sixthPartStory(input,player);
-		Story.seventPartStory(input,player);
-		Story.finalOne(input,player);
-		Story.finalTwo(input,player);
+		//Story.seventPartStory(input,player);
+		//Story.finalOne(input,player);
+		//Story.finalTwo(input,player);
 		
 		
 		

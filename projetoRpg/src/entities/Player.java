@@ -8,7 +8,7 @@ public class Player {
 	private double PV;
 	private double PVMax;
 	private double mp = 3;
-	private double mpMax;
+	private double mpMax = mp;
 
 	private int strength;
 	private int constitution;
@@ -48,9 +48,9 @@ public class Player {
 	public double getDamage() {
 		if (weapon.getWeaponCategory() == "light") {
 			return Math.round(weapon.getWeaponDamage() + (random.nextDouble(6) + 1) + (random.nextDouble(6) + 1)
-					+ (random.nextDouble(4) + 1) + (this.dexterity / 2));
+					+ (random.nextDouble(4) + 1) + (this.dexterity / 4));
 		} else {
-			return Math.round(weapon.getWeaponDamage() + (random.nextDouble(12) + 1) + 1.5 * this.strength);
+			return Math.round(weapon.getWeaponDamage() + (random.nextDouble(12) + 1) + 0.1 * this.strength);
 		}
 	}
 

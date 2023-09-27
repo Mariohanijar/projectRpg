@@ -148,7 +148,7 @@ public class Battle {
             } else {
                 
                 monster.healLife(monster.drinkPotion());
-                System.out.println("You healead " + heal + " points of life");
+                System.out.println(monster.getName() + " healead " + heal + " points of life");
                 monster.setAmountOfPotions();
                 Formatting.lineBreaker();
                 return false;
@@ -200,7 +200,6 @@ public class Battle {
         }
         if(monster.getPV() <= 0){
             System.out.println("You defeated the " + monster.getName());
-            player.resetPlayer();
         }
         else{
             System.out.println("You have been defeated");

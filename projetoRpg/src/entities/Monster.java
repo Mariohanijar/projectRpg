@@ -41,7 +41,7 @@ public class Monster {
 	}
 
 	public double getDamage() {
-		return Math.round(random.nextDouble(this.damage));
+		return Math.round(random.nextDouble(this.damage)+1);
 	}
 
 	public double getDefense() {

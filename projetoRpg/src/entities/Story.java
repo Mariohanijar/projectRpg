@@ -42,7 +42,7 @@ public class Story {
 	
 	public static void secondPartStory( Scanner input, Player player) {
 		Formatting.slowPrint10("\nafter winning the monster you hear a scream");
-		Formatting.slowPrint10("\nGoldriver: "+player.getName().toUpperCase()+" ARE YOU FINE?");
+		Formatting.slowPrint10("\nGoldriver: "+player.getName().toUpperCase()+" ARE YOU ALRIGHT?");
 		Formatting.slowPrint10("\n"+player.getName()+":I'm really scared, what had I done?");
 		Formatting.slowPrint10("\nGoldriver: you were really lucky, you could died here, I can't always protect you " + player.getName());
 		Formatting.slowPrint10("I will train you, just like my dad did to me.");
