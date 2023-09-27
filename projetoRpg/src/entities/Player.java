@@ -7,7 +7,7 @@ public class Player {
 	private String name;
 	private double PV;
 	private double PVMax;
-	private double mp;
+	private double mp = 3;
 	private double mpMax;
 
 	private int strength;
@@ -203,5 +203,6 @@ public class Player {
 	public void resetPlayer() {
 		this.PV = this.PVMax;
 		this.amountOfPotions = 3;
+		this.mp = this.mpMax;
 	}
 }

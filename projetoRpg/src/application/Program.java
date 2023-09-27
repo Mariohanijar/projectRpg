@@ -17,7 +17,19 @@ import entities.playerActions;
 
 
 public class Program {
-	
+	public static boolean mimicGame(Scanner input, Random random) {
+		System.out.println("which chest do you want to open? \nchest[1] \nchest[2]");
+		int choice = input.nextInt();
+		int x = (random.nextInt(2)+1);
+		
+		if(choice == x) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+	}
 
 	public static void menu() {
 		Formatting.slowPrint10("what do you want to do?");
@@ -50,10 +62,9 @@ public class Program {
 		Armor plateArmor = new Armor(17, "Plate Armour");
 		Armor berserkArmor = new Armor(9000, "Berserk Armour");
 		
-		Magic fireball = new Magic("Fire ball", "fire", 15);
-		Magic iceShards = new Magic("Ice Shards", "ice", 15);
-		Magic infestation = new Magic("Infestation", "poison", 15);
-		
+		Magic fireball = new Magic("Fire ball", "fire", 10);
+		Magic iceShards = new Magic("Ice Shards", "ice", 10);
+		Magic infestation = new Magic("Infestation", "poison", 10);
 		
 		Market magnus = new Market("Magnus", "Down Hill", "1.a", "market of sown hill", 20, 10, 50, 60);
 		//Market freya= new Market("freya", "Dirty Helment", "1.helment, 2. potion, 3. magic", "market of Dirty Helment", 3,7,4,9);

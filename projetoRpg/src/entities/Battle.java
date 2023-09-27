@@ -40,13 +40,13 @@ public class Battle {
         double damage, heal;
 
         player.setDefense(player.getOriginalDefense());
-        System.out.println("\n" + player.getName() + "'s life: " + player.getLife() + " || " + monster.getName()
+        System.out.println("\n" + player.getName() + "'s life: " + player.getLife() + " mana: " + player.getMp() +" || " + monster.getName()
         + "'s life: " + monster.getPV() + "\n\n");
         System.out.println("what do you want to do?\n ATTACK[1] MAGIC[2] DEFENSE[3] POTION[4]");
 
         int choice = input.nextInt();
         int magicChosen;
-        Formatting.lineBreaker();
+        
 
         switch (choice) {
         case 1:
@@ -57,12 +57,17 @@ public class Battle {
         case 2:
         	System.out.println("what magic do you want to use?: ");
         	for(int i = 0; i < player.getMagicLenght(); i++) {
-        		System.out.println(player.getMagic(i) + "["+i+"] ");
+        		System.out.println(player.getMagic(i) + "["+(1+i)+"] ");
         	}
-        	magicChosen = input.nextInt();
+        	magicChosen = (input.nextInt()-1);
+        	if(player.getMp() == 0) {
+        		System.out.println("you don't have mana!!!!");
+        		return true;
+        	}
         	damage = monster.receiveDamage(player.getMagicDamage(magicChosen), player.getMagicType(magicChosen));
         	Formatting.lineBreaker();
-        	System.out.println("\n\nyou dealt " + damage + " damage!!!\n\n");
+        	System.out.println("\n\nyou cast "+ player.getMagic(magicChosen) +" and dealt " + damage + " damage!!!\n\n"); 
+        	player.setMp(player.getMp()-1);
         	Formatting.lineBreaker();
         	return false;
         case 3:
@@ -178,7 +183,7 @@ public class Battle {
                 
             }
             if (player.getAgility() < monster.getAgility()) {
-            	for(int i = 0; i < 1; i++)System.out.println("\n" + player.getName() + "'s life: " + player.getLife() + " || " + monster.getName()
+            	for(int i = 0; i < 1; i++)System.out.println("\n" + player.getName() + "'s life: " + player.getLife() + " mana: " + player.getMp() +" || " + monster.getName()
                 + "'s life: " + monster.getPV() + "\n\n");
                 do{
                     pass = monsterTurn(input, monster, player, random);
