@@ -134,8 +134,7 @@ public class Market {
 
 	@Override
 	public String toString() {
-		return "Hello my name is " + mercant + ", I'm from " + district + "\nso what can i help you? I sell " + products + ", description="
-				+ description + ", cost" + "]";
+		return "Hello my name is " + mercant + ", I'm from " + district +  " So what can I help you?";
 	}
 
 

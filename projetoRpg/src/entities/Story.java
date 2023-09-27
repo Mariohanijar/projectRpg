@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Story {
 	public static void background() {
-		Formatting.slowPrint10("In the king of Gondendelve, was born a Patriarch dwarf of the Decker family (one of the richest in the region), he was always \ninterested in fighting, especially because of his father (a brilliant warrior who was the king's personal bodyguard) \nwho taught him all about combat, ");
+		Formatting.slowPrint10("In the kingdom of Gondendelve, was born a Patriarch dwarf of the Decker family (one of the richest in the region), he was always \ninterested in fighting, especially because of his father (a brilliant warrior who was the king's personal bodyguard) \nwho taught him all about combat, ");
 		Formatting.slowPrint10("the brilliant Adrik Decker. One day his father left for a mission. \nIn this realm there was a group of very feared elves, who lived looting what they found, when the group found that the legendary Decker \nhad left, they went straight to his house to loot, \nGoldriver at 12 was");
 		Formatting.slowPrint10(" training in his yard when he heard his mother screamed, when he got there the elves had killed his mother and were looting \nas many things as they could,  The boy then showed all his training and killed all the elves, being respected by all the kingdom for defeating such a scary group. ");
 		Formatting.slowPrint10( "\nThe father, after discovering what had happened, could not stand the news and ended up killing himself, but not without first \nleaving all of his equipment for his son.. The king, seeing the boy's skill and with the friendship with his \nfather, granted him a space in the kingdom to be trained ");
@@ -25,19 +25,20 @@ public class Story {
 		Formatting.slowPrint10("\n" + player.getName()+":definetly not so good, I'm really don't know how the king did all that horrible things.");
 		Formatting.slowPrint10("\nGoldriver: me neither, but unfortnately there is nothing we can do, so are you hungry?");
 		Formatting.slowPrint10("\n"+player.getName()+":starving");
-		Formatting.slowPrint10("\nok listen, it is starting to be dangerous here, let's split ourselves, I'm going to find some food and you try to find someplace to we rest\r\n"
-				+ "See that cave overthere must be safe to we sleep.");
-		Formatting.slowPrint10("\nafter split yourselves " +player.getName() +" entry in the cave, going over there, he heard a noise bellow the cave, \nafter some steps you try to find which noise was that.");
+		Formatting.slowPrint10("\nGoldriver:ok listen, it is starting to be dangerous here, let's split ourselves, I'm going to find some food and you try to find someplace to we rest\r\n"
+				+ "Goldriver:See that cave overthere must be safe to we sleep.");
+		Formatting.slowPrint10("\n\nafter split yourselves " +player.getName() +" entry in the cave, going over there, he heard a noise bellow the cave, \nafter some steps you try to find which noise was that.");
 		Formatting.slowPrint10("You start to go down and down in the cave, after some steps \nyou see a strange door, after entry inside, a mysterious person lock the door, you try to oppend but you failed, \nso now you see two grottous, one is bright and seems to have something valuable, the other one looks like the right way to find Goldriver. \nwhich way do you prefer to go?");
+		Formatting.slowPrint10("\n1. Bright way, 2. The way out?");
 	}
 	public static void treasureWay( Scanner input, Player player) {
 		Formatting.slowPrint10("\nafter walk to the grotto, you heard a mysterous noise and looking behind a huge rock fall");
-		Formatting.slowPrint10("blocking your way back, you see a letter under you saying that you must pay attention\r\n");
-		Formatting.slowPrint10("it really has a tresure but one of the treasures is really a treasure and the other one is a monster that will try to kill you. \r\n");
+		Formatting.slowPrint10(" blocking your way back, you see a letter under you saying that you must pay attention\r\n");
+		Formatting.slowPrint10("it has a tresure but one of the treasures is a monster that will try to kill you. \r\n");
 	}
 	
 	public static void theWayOutOfCave( Scanner input, Player player) {
-		Formatting.slowPrint10("going to the way out, you see a light that can be a way out of the cave, \nbut you heard something and after look behind a mysterious creature approachs trying to kill you.");
+		Formatting.slowPrint10("going to the way out, you see a light that can be the end of the cave, \nbut you heard something, and after look behind a mysterious creature approachs, trying to kill you.\n");
 	}
 	
 	public static void secondPartStory( Scanner input, Player player) {
@@ -45,18 +46,24 @@ public class Story {
 		Formatting.slowPrint10("\nGoldriver: "+player.getName().toUpperCase()+" ARE YOU ALRIGHT?");
 		Formatting.slowPrint10("\n"+player.getName()+":I'm really scared, what had I done?");
 		Formatting.slowPrint10("\nGoldriver: you were really lucky, you could died here, I can't always protect you " + player.getName());
-		Formatting.slowPrint10("I will train you, just like my dad did to me.");
+		Formatting.slowPrint10(" I will train you, just like my dad did to me.");
 		Formatting.slowPrint10("\n"+player.getName()+" but Goldriver...");
 		Formatting.slowPrint10("\nGoldriver: ENOUGH, it's getting really dark here, let's get other spot");
 		
-		Formatting.slowPrint50("\nAfter one month");
-		Formatting.slowPrint10("\nafter one month, Goldriver train you everyday to learn how to fight with enemyes");
-		Formatting.slowPrint10("\nGoldriver: Okay, " + player.getName() + " I see that you already are ready to use a weapon, \nI pick those ones in my travels. Choose the one that you enjoy more.\n");
+		Formatting.slowPrint50("\n\nAfter one month");
+		Formatting.slowPrint10("\nGoldriver train you everyday to learn how to fight with enemies");
+		Formatting.slowPrint10("\nGoldriver: Okay, " + player.getName() + " I see that are ready to use a real weapon, \nI pick those ones in my travels. Choose the one that you enjoy more.\n");
 	}
+	
+	public static void magicDialogue( Scanner input, Player player) {
+		Formatting.slowPrint10("\nGoldriver: one more thing, an old man give me these magic books, I never like magic");
+		Formatting.slowPrint10("\nso, choose one if you like it \n");
+	}
+	
 	public static void thirdPartStory( Scanner input, Player player) {
 		Formatting.slowPrint10("\nGoldriver: nice choice, I think we should go to a tavern, \nI'm really tired of walking for so many districts.");
 		Formatting.slowPrint10("\n"+player.getName()+":Me too, I really need to take a shower.");
-		Formatting.slowPrint10("\nAfter walking for many hours, you find a nice district Down Hill, A really calm place");
+		Formatting.slowPrint10("\n\nAfter walking for many hours, you find a nice district Down Hill, A really calm place");
 		Formatting.slowPrint10("\nGoldriver: " +player.getName()+ " you saw that? haha a tavern. I really want a huge bed to sleep");
 		Formatting.slowPrint10("\n"+player.getName()+":And which bed isn't huge for you Goldriver?");
 		Formatting.slowPrint10("\nGoldriver: if you start with these jokes, I'm gonna show you who is small");
@@ -67,6 +74,10 @@ public class Story {
 		
 	}
 	public static void GambleDialogue( Scanner input, Player player) {
+		Formatting.slowPrint10("\nHello sir, I have two chests");
+		Formatting.slowPrint10("\nonly one chest has the money and the other it's completly empety");
+		Formatting.slowPrint10("\nDo you have 40 coins to try your luck?");
+		Formatting.slowPrint10("\n[1] yes [2] no");
 		
 		
 	}
@@ -89,12 +100,12 @@ public class Story {
 		Formatting.slowPrint10("\n"+player.getName()+":why aren't you just leave us alone? We don't give a damn about the king");
 		Formatting.slowPrint10("\n"+monster.getName()+":You don't see what have you done, ");
 		Formatting.slowPrint50("you are ALL DEAD, GOLDRIVER," + player.getName() + " \nIS CONDEMNED TO DEATH, BECAUSE EVERYONE THAT YOU CARE DIE, DIE, DIE");
-		Formatting.slowPrint50("\nGoldriver, after heard all this, he take his axe and cut the head of" + monster.getName());
+		Formatting.slowPrint50("\nGoldriver, after heard all this, he take his axe and cut the head of " + monster.getName());
 		Formatting.slowPrint10("\nGoldriver: I heard enough let's get out of here before the situation get worse");
 		Formatting.slowPrint50("\n"+player.getName()+":o... ok");
 		Formatting.slowPrint10("\nbut, after some time a local starts talking with you");
 		Formatting.slowPrint10("\nMagnus: you really deafeted the " + monster.getName());
-		Formatting.slowPrint10("\n"+player.getName()+"yeah");
+		Formatting.slowPrint10("\n"+player.getName()+": yeah");
 		Formatting.slowPrint10("\nMagnus: that's wonderful, he was really damaging everyone's lives");
 		Formatting.slowPrint10("\nGoldriver: Sorry, we really need to go");
 		Formatting.slowPrint10("\nMagnus: Wait before you go, please young boy \nI would be preatty happy if you choose one of these armors as a gift. \n");
@@ -109,7 +120,7 @@ public class Story {
 		Formatting.slowPrint10("\nGoldriver: you really think it's a good Idea?");
 		Formatting.slowPrint10("\n"+player.getName()+":with all the certainty in the world");
 		
-		Formatting.slowPrint10("\nAfter some hours, you finally get out of the house, going towards kriften. \nYou see a mercant, do you want to trade with him?");
+		Formatting.slowPrint10("\nAfter some hours, you finally get out of the house, going towards kriften. \nYou see a mercant, do you want to trade with her? [1] yes [2] no");
 	}
 	public static void MercantFreyaDialog( Scanner input, Player player) {
 		
@@ -122,15 +133,18 @@ public class Story {
 		Formatting.slowPrint50("\nDanyel: You never was like your father, Adrik was much better than you.");
 		Formatting.slowPrint50("\nGoldriver: my parents are dead because of your pathetic guardianship");
 		Formatting.slowPrint50("\nDanyel: YOU ARE DEAD DECKER");
-		Formatting.slowPrint50("\n"+player.getName()+" seeing that Decker would die, pushes Goldriver in the direction of a lake, now "+player.getName() + " was the only one against all the guards of the king");
+		Formatting.slowPrint50("\n\n"+player.getName()+" seeing that Decker would die, pushes Goldriver in the direction of a lake, now "+player.getName() + " was the only one against all the guards of the king");
 		
+		
+	}
+	public static void eighthPartStory( Scanner input, Player player) {
 		Formatting.slowPrint50("\nDanyel: I'm not gonna lie, you are tought kid, but not for me.");
 		Formatting.slowPrint50("\ndrop this peace of shit in a bonfire, \n" + player.getName()+ " dies honorably saving his friend");
 		
 		Formatting.slowPrint50("\nafter hours of the dead of " + player.getName() +", Goldriver finnaly finds a way to get out of the lake.");
 		Formatting.slowPrint50("\nhe see somepeople walking a little further, so he hides in a hole, \nGoldriver sees some nobles celebrating that one of the outlaws were finally dead");
 		Formatting.slowPrint50("\nGoldriver couldn't heard all that, so he need to think about one of the most important choices of his life");
-		
+		Formatting.slowPrint50("\n[1] Kill all the village and search for revange [2] leave the village");
 	}
 	public static void finalTwo(Scanner input, Player player) {
 		Formatting.slowPrint100("non-canonical ending");

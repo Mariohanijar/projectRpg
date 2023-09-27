@@ -38,7 +38,7 @@ public class playerActions {
 		
 		
 		while(1 != 0) {
-			System.out.println("which weapon do you want?"+ weapon1.getWeaponName() + "[1], "+ weapon2.getWeaponName() + "[2]");
+			System.out.println("which weapon do you want? "+ weapon1.getWeaponName() + "[1], "+ weapon2.getWeaponName() + "[2]");
 			int choice = input.nextInt();
 			int x;
 			switch (choice) {
@@ -122,7 +122,7 @@ public class playerActions {
 		
 		
 		while(1 != 0) {
-			System.out.println("\nHello traveler what do you want to buy? \n1. " + magic1.getMagicName() +  " = " + market.getMagicCost() + "\n2. potion = " + market.getPotionCost() + "\n3. " + armor.getArmorName() + " = " + market.getArmorCost() + "\n4. " + weapon.getWeaponName()	+ " = " + market.getWeaponCost() +"\n5.sair ");
+			System.out.println("\nwhat do you want to buy? \n1. " + magic1.getMagicName() +  " = " + market.getMagicCost() + "\n2. potion = " + market.getPotionCost() + "\n3. " + armor.getArmorName() + " = " + market.getArmorCost() + "\n4. " + weapon.getWeaponName()	+ " = " + market.getWeaponCost() +"\n5.sair ");
 			int choice = input.nextInt();
 			int x;
 			int y;

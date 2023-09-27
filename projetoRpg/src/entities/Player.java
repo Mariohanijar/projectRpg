@@ -202,7 +202,7 @@ public class Player {
 
 	public void resetPlayer() {
 		this.PV = this.PVMax;
-		this.amountOfPotions = 3;
+		//this.amountOfPotions = 3;
 		this.mp = this.mpMax;
 	}
 }
