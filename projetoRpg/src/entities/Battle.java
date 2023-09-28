@@ -206,8 +206,6 @@ public class Battle {
         }
         else{
             System.out.println("You have been defeated\n");
-            System.out.println("returning to the menu....");
-            Formatting.lineBreaker();
             return false;
         }
         

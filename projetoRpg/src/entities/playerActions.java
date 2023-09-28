@@ -125,7 +125,7 @@ public class playerActions {
 			case 1:
 				if (player.getCoin() >= market.getMagicCost()) {
 
-					System.out.println("\nAre you sure? yes[1] no[2]");
+					System.out.println(magic1 + "\nAre you sure? yes[1] no[2]");
 					// return weapon1;
 					x = input.nextInt();
 					if (x == 1) {
@@ -174,7 +174,7 @@ public class playerActions {
 			case 3:
 				if (player.getCoin() >= market.getWeaponCost()) {
 
-					System.out.println("\nAre you sure? yes[1] no[2]");
+					System.out.println(weapon + "\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if (x == 1) {
 						player.setCoin(player.getCoin() - market.getWeaponCost());
@@ -190,11 +190,14 @@ public class playerActions {
 						continue;
 					}
 
+				} else {
+					System.out.println("\nyou don't have enough money");
+					continue;
 				}
 			case 4:
 				if (player.getCoin() >= market.getArmorCost()) {
 
-					System.out.println("\nAre you sure? yes[1] no[2]");
+					System.out.println(armor + "\nAre you sure? yes[1] no[2]");
 					x = input.nextInt();
 					if (x == 1) {
 						player.setCoin(player.getCoin() - market.getArmorCost());
@@ -210,6 +213,9 @@ public class playerActions {
 						continue;
 					}
 
+				} else {
+					System.out.println("\nyou don't have enough money");
+					continue;
 				}
 			case 5:
 				return market;

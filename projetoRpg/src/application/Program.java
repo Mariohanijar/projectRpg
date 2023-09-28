@@ -17,6 +17,7 @@ import entities.Weapon;
 import entities.playerActions;
 
 public class Program {
+
 	public static boolean mimicGame(Scanner input, Random random) {
 		System.out.println("which chest do you want to open? \nchest[1] \nchest[2]");
 		int choice = input.nextInt();
@@ -36,6 +37,10 @@ public class Program {
 
 	}
 
+	public static int bounty(Random random) {
+		return random.nextInt(10) + 1 + random.nextInt(10) + 1 + random.nextInt(10) + 1 + random.nextInt(10) + 1;
+	}
+
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner input = new Scanner(System.in);
@@ -49,8 +54,8 @@ public class Program {
 		Monster morgarothRoyalGuard = new Monster("Morgaroth the royal guard", 60, 16, 15, 1, "fire", "wind");
 		Monster ThalricBountyHunter = new Monster("Thalric the Bounty hunter", 60, 15, 15, 1, "ice", "poison");
 		Monster theGambleMan = new Monster("The Gamble Man", 40, 8, 15, 1, "ice", "poison");
-		Monster RoyalGuard = new Monster("Royal Guard", 10, 5, 3, 2, "ice", "poison");
-		Monster RoyalGuard2 = new Monster("Royal Guard", 10, 5, 3, 2, "ice", "electricity");
+		Monster RoyalGuard = new Monster("Royal Guard", 50, 5, 3, 2, "ice", "poison");
+		Monster RoyalGuard2 = new Monster("Royal Guard", 50, 5, 3, 2, "ice", "electricity");
 		Monster king = new Monster("King", 1000, 40, 3, 2, "fire", "electricity");
 
 		Weapon shortSickle = new Weapon(3, "light", "Short Sickle", "Slash");
@@ -72,7 +77,7 @@ public class Program {
 		Magic infestation = new Magic("Infestation", "poison", 15);
 		Magic windBlow = new Magic("Wind Blow", "wind", 15);
 		Magic lightAttack = new Magic("Light Attack", "electricity", 15);
-	    Magic magicMissile = new Magic("Magic Missile", "magic", 10);
+		Magic magicMissile = new Magic("Magic Missile", "magic", 10);
 
 		Market magnus = new Market("Magnus", "Down Hill", "1.fireball, 2.Potion, 3.", "market of sown hill", 20, 10, 50,
 				60);
@@ -88,13 +93,18 @@ public class Program {
 				player.setWeapon(playerActions.weaponSelector(input, shortSickle, heavyAxe));
 				player.setArmor(playerActions.armorSelector(input, leatherArmor, chainArmor));
 				player.addMagic(magicMissile);
-				 Story.firstPartStory(input, player);
+				Story.firstPartStory(input, player);
 
 				choice = input.nextInt();
 				if (choice == 1) {
 					Story.treasureWay(input, player);
 					if (mimicGame(input, random)) {
-						Battle.battleWithOneMonster(mimic, player, input);
+						game = Battle.battleWithOneMonster(mimic, player, input);
+						if (!game) {
+							System.out.println("returning to the menu....");
+							Formatting.lineBreaker();
+							continue;
+						}
 						System.out.println("\nCongratulations you defeated the mimic!");
 						System.out.println("\nSearching inside the mimic you find 30 coins!");
 						player.setCoin(player.getCoin() + 30);
@@ -105,10 +115,12 @@ public class Program {
 				}
 				Story.theWayOutOfCave(input, player);
 				game = Battle.battleWithThreeMonsters(slime, globin, kobold, player, input, random);
-				if (!game)
+				if (!game) {
+					System.out.println("returning to the menu....");
+					Formatting.lineBreaker();
 					continue;
-				int bounty = random.nextInt(10) + 1 + random.nextInt(10) + 1 + random.nextInt(10) + 1
-						+ random.nextInt(10) + 1;
+				}
+				int bounty = bounty(random);
 				player.setCoin(player.getCoin() + bounty);
 				System.out.println("You find " + bounty + " coins!!!");
 				player.resetPlayer();
@@ -119,19 +131,20 @@ public class Program {
 				player.addMagic(playerActions.magicSelector(input, fireBall, infestation, iceShards));
 				playerActions.levelUp(input, 5, player);
 				player.resetPlayer();
-				
-				Story.thirdPartStory(input, player);
 
+				Story.thirdPartStory(input, player);
+				boolean gambleManIsAlive = true;
 				while (choice != 3) {
+
 					Formatting.slowPrint10(
-							"\n\n[1] buy something in the market [2] play gambling  games [3] rent a room [4] see the inventory\n");
+							"\n\n[1] buy something in the market [2] play gambling  games (need 40 coins) [3] rent a room [4] see the inventory\n");
 					choice = input.nextInt();
 
 					if (choice == 1) {
 						System.out.println(magnus);
 						playerActions.marketsOnGame(input, player, magnus, windBlow, null, bow, ringMailArmor);
 					} else if (choice == 2) {
-						if (player.getCoin() >= 40) {
+						if (player.getCoin() >= 40 && gambleManIsAlive == true) {
 							Story.GambleDialogue(input, player);
 							choice = input.nextInt();
 							if (choice == 1) {
@@ -147,17 +160,22 @@ public class Program {
 									if (choice == 1) {
 										player.setCoin(player.getCoin() - 40);
 									} else {
-										Battle.battleWithOneMonster(theGambleMan, player, input);
+										game = Battle.battleWithOneMonster(theGambleMan, player, input);
+										if (!game) {
+											System.out.println("returning to the menu....");
+											Formatting.lineBreaker();
+											continue;
+										}
+										gambleManIsAlive = false;
 										System.out.println("\nYou take your money again ");
 									}
 								}
 
-							}
-							else {
+							} else {
 								continue;
 							}
 						} else {
-							Formatting.slowPrint10("\nSorry you don't have enough coins");
+							Formatting.slowPrint10("\nSorry you can't gamble now\n");
 						}
 					}
 					if (choice == 4) {
@@ -166,13 +184,30 @@ public class Program {
 				}
 
 				Story.fourthPartStory(input, player);
-				game = Battle.battleWithTwoMonsters(morgarothRoyalGuard, ThalricBountyHunter, player, input, random);
-				if (!game)
-					continue;
+				int oponentDecider = (random.nextInt(2) + 1);
+				bounty = bounty(random);
 				player.setCoin(player.getCoin() + bounty);
-				System.out.println("You find " + bounty + " coins!!!");
-				
-				Story.fifthPartStory(input, player, theGambleMan);
+				if (oponentDecider == 1) {
+					game = Battle.battleWithOneMonster(ThalricBountyHunter, player, input);
+					if (!game) {
+						System.out.println("returning to the menu....");
+						Formatting.lineBreaker();
+						continue;
+					}
+					System.out.println("You find " + bounty + " coins!!!");
+
+					Story.fifthPartStory(input, player, ThalricBountyHunter);
+				} else if (oponentDecider == 2) {
+					game = Battle.battleWithOneMonster(morgarothRoyalGuard, player, input);
+					if (!game) {
+						System.out.println("returning to the menu....");
+						Formatting.lineBreaker();
+						continue;
+					}
+					System.out.println("You find " + bounty + " coins!!!");
+
+					Story.fifthPartStory(input, player, morgarothRoyalGuard);
+				}
 
 				player.setArmor(playerActions.armorSelector(input, splintArmor, plateArmor));
 
@@ -188,8 +223,19 @@ public class Program {
 				}
 
 				Story.seventPartStory(input, player);
-				Battle.battleWithOneMonster(RoyalGuard, player, input);
-				Battle.battleWithOneMonster(RoyalGuard2, player, input);
+				game = Battle.battleWithOneMonster(RoyalGuard, player, input);
+				if (!game) {
+					System.out.println("returning to the menu....");
+					Formatting.lineBreaker();
+					continue;
+				}
+				game = Battle.battleWithOneMonster(RoyalGuard2, player, input);
+				if (!game) {
+					System.out.println("returning to the menu....");
+					Formatting.lineBreaker();
+					continue;
+				}
+
 				Battle.battleWithOneMonster(king, player, input);
 
 				Story.eighthPartStory(input, player);

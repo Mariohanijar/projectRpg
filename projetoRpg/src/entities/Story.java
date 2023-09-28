@@ -70,9 +70,7 @@ public class Story {
 		
 		Formatting.slowPrint10("\nAfter some jokes, you entry in the tavern. Over there, you see some interesting places to go.");
 	}
-	public static void MercantMagnusDialog( Scanner input, Player player) {
-		
-	}
+	
 	public static void GambleDialogue( Scanner input, Player player) {
 		Formatting.slowPrint10("\nHello sir, I have two chests");
 		Formatting.slowPrint10("\nonly one chest has the money and the other it's completly empety");
@@ -122,9 +120,7 @@ public class Story {
 		
 		Formatting.slowPrint10("\nAfter some hours, you finally get out of the house, going towards kriften. \nYou see a mercant, do you want to trade with her? [1] yes [2] no");
 	}
-	public static void MercantFreyaDialog( Scanner input, Player player) {
-		
-	}
+	
 	public static void seventPartStory( Scanner input, Player player) {
 		Formatting.slowPrint50("\nafter some walk, you are almost leaving Dirty Helment when an arrow falls in front of Goldriver,");
 		Formatting.slowPrint50("\nthe king with all his guard was aiming at you");
@@ -141,7 +137,7 @@ public class Story {
 		Formatting.slowPrint50("\nDanyel: I'm not gonna lie, you are tought kid, but not for me.");
 		Formatting.slowPrint50("\ndrop this piece of shit in a bonfire, \n" + player.getName()+ " dies honorably saving his friend");
 		
-		Formatting.slowPrint50("\nafter hours of the dead of " + player.getName() +", Goldriver finnaly finds a way to get out of the lake.");
+		Formatting.slowPrint50("\nafter hours of the dead of " + player.getName() +", Goldriver finally finds a way to get out of the lake.");
 		Formatting.slowPrint50("\nhe see somepeople walking a little further, so he hides in a hole, \nGoldriver sees some nobles celebrating that one of the outlaws were finally dead");
 		Formatting.slowPrint50("\nGoldriver couldn't heard all that, so he need to think about one of the most important choices of his life");
 		Formatting.slowPrint50("\n[1] Kill all the village and search for revange [2] leave the village");
