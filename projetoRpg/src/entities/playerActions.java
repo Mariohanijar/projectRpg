@@ -132,7 +132,7 @@ public class playerActions {
 						magic1.getMagicName();
 						player.setCoin(player.getCoin() - market.getMagicCost());
 						player.addMagic(magic1);
-						System.out.println("\nDo you want something more? yes[1] no[2]");
+						System.out.println("\nIs that all you want? yes[1] no[2]");
 						y = input.nextInt();
 						if (y == 1) {
 							return market;
@@ -179,7 +179,7 @@ public class playerActions {
 					if (x == 1) {
 						player.setCoin(player.getCoin() - market.getWeaponCost());
 						player.setWeapon(weapon);
-						System.out.println("\nDo you want something more? yes[1] no[2]");
+						System.out.println("\nIs that all you want? yes[1] no[2]");
 						y = input.nextInt();
 						if (y == 1) {
 							return market;
@@ -199,7 +199,7 @@ public class playerActions {
 					if (x == 1) {
 						player.setCoin(player.getCoin() - market.getArmorCost());
 						player.setArmor(armor);
-						System.out.println("\nDo you want something more? yes[1] no[2]");
+						System.out.println("\nIs that all you want? yes[1] no[2]");
 						y = input.nextInt();
 						if (y == 1) {
 							return market;
