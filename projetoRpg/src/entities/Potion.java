@@ -8,7 +8,7 @@ public class Potion {
 	private int amountPotions = 3;
 	
 	public double DrinkPotion() {
-		return Math.round(random.nextDouble(3)+random.nextDouble(3)+random.nextDouble(3));
+		return Math.round(random.nextDouble(5)+random.nextDouble(5)+random.nextDouble(5));
 	}
 	
 	public int getAmountPotions() {

@@ -19,7 +19,7 @@ public class Story {
 	}
 	
 	public static void firstPartStory( Scanner input, Player player) {
-		Formatting.slowPrint50("\n\nTwo months after\n\n");
+		Formatting.slowPrint50("\n\nTwo months later\n\n");
 		Formatting.slowPrint10("Goldriver and "+ player.getName() + " are hiding in a forest trying to find someplace to sleep");
 		Formatting.slowPrint10("\nGoldriver:So how's it going "+ player.getName());
 		Formatting.slowPrint10("\n" + player.getName()+":definetly not so good, I'm really don't know how the king did all that horrible things.");
@@ -50,7 +50,7 @@ public class Story {
 		Formatting.slowPrint10("\n"+player.getName()+" but Goldriver...");
 		Formatting.slowPrint10("\nGoldriver: ENOUGH, it's getting really dark here, let's get other spot");
 		
-		Formatting.slowPrint50("\n\nAfter one month");
+		Formatting.slowPrint50("\n\none month later");
 		Formatting.slowPrint10("\nGoldriver train you everyday to learn how to fight with enemies");
 		Formatting.slowPrint10("\nGoldriver: Okay, " + player.getName() + " I see that are ready to use a real weapon, \nI pick those ones in my travels. Choose the one that you enjoy more.\n");
 	}
@@ -111,7 +111,7 @@ public class Story {
 		Formatting.slowPrint10("\nMagnus: Wait before you go, please young boy \nI would be preatty happy if you choose one of these armors as a gift. \n");
 	}
 	public static void sixthPartStory( Scanner input, Player player) {
-		Formatting.slowPrint100("Two weeks after");
+		Formatting.slowPrint100("Two weeks later");
 		Formatting.slowPrint50("\nleaving Down Hill " + player.getName()+ " and Goldriver run to other district Dirty Helment, after hide in a abandoned house, trying to start a fire to get warmer");
 		Formatting.slowPrint10("\n"+player.getName()+":It's really cold here");
 		Formatting.slowPrint10("\nGoldriver: we need to kill the king, and all of this is over");
@@ -139,7 +139,7 @@ public class Story {
 	}
 	public static void eighthPartStory( Scanner input, Player player) {
 		Formatting.slowPrint50("\nDanyel: I'm not gonna lie, you are tought kid, but not for me.");
-		Formatting.slowPrint50("\ndrop this peace of shit in a bonfire, \n" + player.getName()+ " dies honorably saving his friend");
+		Formatting.slowPrint50("\ndrop this piece of shit in a bonfire, \n" + player.getName()+ " dies honorably saving his friend");
 		
 		Formatting.slowPrint50("\nafter hours of the dead of " + player.getName() +", Goldriver finnaly finds a way to get out of the lake.");
 		Formatting.slowPrint50("\nhe see somepeople walking a little further, so he hides in a hole, \nGoldriver sees some nobles celebrating that one of the outlaws were finally dead");
